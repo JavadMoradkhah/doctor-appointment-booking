@@ -1,0 +1,47 @@
+services:
+  server:
+    build: ./server
+    restart: on-failure
+    ports:
+      - 8000:8000
+    env_file: ./server/.env.dev
+    volumes:
+      - ./server:/usr/src/app
+    depends_on:
+      database:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  database:
+    image: postgres:16.3-alpine3.20
+    restart: always
+    env_file: ./server/.env.dev
+    user: postgres
+    volumes:
+      - database-data:/var/lib/postgresql/data
+    expose:
+      - 5432
+    healthcheck:
+      test: ['CMD', 'pg_isready']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7.2.4
+    restart: always
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+
+  adminer:
+    image: adminer:4.8.1
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  database-data:
+  redis_data:
