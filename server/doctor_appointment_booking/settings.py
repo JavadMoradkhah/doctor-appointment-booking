@@ -129,6 +129,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+JWT_SECRET = os.environ.get('JWT_SECRET')
+JWT_AUDIENCE = os.environ.get('JWT_AUDIENCE')
+JWT_ISSUER = os.environ.get('JWT_ISSUER')
 
 REDIS = redis.Redis(
     host='redis', port=6379, db=0,
