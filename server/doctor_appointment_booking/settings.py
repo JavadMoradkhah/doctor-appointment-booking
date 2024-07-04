@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from datetime import timedelta
 import redis
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -32,7 +33,8 @@ INSTALLED_APPS = [
     'django_cleanup.apps.CleanupConfig',
     'debug_toolbar',
     # My Apps
-    'account'
+    'account',
+    'authentication'
 ]
 
 MIDDLEWARE = [
@@ -129,9 +131,36 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
 JWT_SECRET = os.environ.get('JWT_SECRET')
 JWT_AUDIENCE = os.environ.get('JWT_AUDIENCE')
 JWT_ISSUER = os.environ.get('JWT_ISSUER')
+JWT_REFRESH_TOKEN_COOKIE = 'refresh-token'
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ROTATE_REFRESH_TOKENS": True,
+
+    "ALGORITHM": "HS256",
+    "SIGNING_KEY": JWT_SECRET,
+    "AUDIENCE": JWT_AUDIENCE,
+    "ISSUER": JWT_ISSUER,
+
+    "AUTH_HEADER_TYPES": ("Bearer",),
+    "USER_ID_FIELD": "id",
+    "USER_ID_CLAIM": "sub",
+
+    "TOKEN_OBTAIN_SERIALIZER": "authentication.serializers.TokenObtainSerializer",
+    "TOKEN_REFRESH_SERIALIZER": "authentication.serializers.CookieTokenRefreshSerializer"
+}
+
 
 REDIS = redis.Redis(
     host='redis', port=6379, db=0,
@@ -141,3 +170,4 @@ REDIS = redis.Redis(
 CELERY_BROKER_URL = 'redis://redis:6379/1'
 CELERY_TIMEZONE = 'Asia/Tehran'
 
+API_KEY_SMS = os.environ.get('API_KEY_SMS')
