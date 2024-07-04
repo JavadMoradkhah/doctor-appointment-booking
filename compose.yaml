@@ -36,6 +36,15 @@ services:
     healthcheck:
       test: ['CMD', 'redis-cli', 'ping']
 
+  celery:
+    build: ./server
+    env_file: ./server/.env.dev
+    command: celery -A doctor_appointment_booking worker --loglevel=info
+    depends_on:
+      - redis
+    volumes:
+      - ./server:/usr/src/app
+
   adminer:
     image: adminer:4.8.1
     restart: always
