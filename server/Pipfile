@@ -15,6 +15,7 @@ psycopg = {extras = ["binary"], version = "*"}
 celery = {extras = ["redis"], version = "*"}
 redis = "*"
 requests = "==2.32.*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 
