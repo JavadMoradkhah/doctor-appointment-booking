@@ -14,6 +14,7 @@ drf-nested-routers = "*"
 psycopg = {extras = ["binary"], version = "*"}
 celery = {extras = ["redis"], version = "*"}
 redis = "*"
+requests = "==2.32.*"
 
 [dev-packages]
 
