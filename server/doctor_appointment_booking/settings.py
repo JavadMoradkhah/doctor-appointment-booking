@@ -1,7 +1,7 @@
-import os
 from pathlib import Path
 from datetime import timedelta
 import redis
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -11,15 +11,27 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&fg5me%q-)==s%*dzy4=grh1l*(3ol3lj^z5nr2@u2n2p2_xs0'
+SECRET_KEY = config('SECRET_KEY', cast=str, default=None)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool, default=True)
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = config(
+    'ALLOWED_HOSTS', cast=lambda v: [item.strip() for item in v.split(",")], default="*"
+)
 
 # Application definition
+
+APPS = [
+    'account',
+    'authentication'
+]
+
+MODULES = [
+    'rest_framework',
+    'django_cleanup.apps.CleanupConfig',
+    'debug_toolbar',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -29,12 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Installed
-    'rest_framework',
-    'django_cleanup.apps.CleanupConfig',
-    'debug_toolbar',
+    *MODULES
     # My Apps
-    'account',
-    'authentication'
+    *APPS
 ]
 
 MIDDLEWARE = [
@@ -81,11 +90,11 @@ WSGI_APPLICATION = 'doctor_appointment_booking.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        "NAME": os.environ.get('DB_NAME'),
-        "USER": os.environ.get('DB_USER', 'postgres'),
-        "HOST": os.environ.get('DB_HOST', '127.0.0.1'),
-        "PORT": os.environ.get('DB_PORT', '5432'),
-        "PASSWORD": os.environ.get('DB_PASSWORD')
+        "NAME": config('DB_NAME', cast=str, default='postgres'),
+        "USER": config('DB_USER', 'postgres', cast=str, default='postgres'),
+        "HOST": config('DB_HOST', '127.0.0.1', cast=int, default='127.0.0.1'),
+        "PORT": config('DB_PORT', '5432', cast=int, default=5432),
+        "PASSWORD": config('DB_PASSWORD', cast=str, default=None)
     }
 }
 
@@ -107,6 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Main user model class
 AUTH_USER_MODEL = 'account.User'
 
 
@@ -138,9 +148,10 @@ REST_FRAMEWORK = {
     )
 }
 
-JWT_SECRET = os.environ.get('JWT_SECRET')
-JWT_AUDIENCE = os.environ.get('JWT_AUDIENCE')
-JWT_ISSUER = os.environ.get('JWT_ISSUER')
+# JWT authentication settings
+JWT_SECRET = config('JWT_SECRET', cast=str, default=None)
+JWT_AUDIENCE = config('JWT_AUDIENCE', cast=str, default=None)
+JWT_ISSUER = config('JWT_ISSUER', cast=str, default=None)
 JWT_REFRESH_TOKEN_COOKIE = 'refresh-token'
 
 SIMPLE_JWT = {
@@ -161,13 +172,14 @@ SIMPLE_JWT = {
     "TOKEN_REFRESH_SERIALIZER": "authentication.serializers.CookieTokenRefreshSerializer"
 }
 
-
+# Redis settings
 REDIS = redis.Redis(
     host='redis', port=6379, db=0,
     charset="utf-8", decode_responses=True
 )
-
+# Celery broker settings
 CELERY_BROKER_URL = 'redis://redis:6379/1'
 CELERY_TIMEZONE = 'Asia/Tehran'
 
-API_KEY_SMS = os.environ.get('API_KEY_SMS')
+# Api key settings
+API_KEY_SMS = config('API_KEY_SMS', cast=str, default=None)
