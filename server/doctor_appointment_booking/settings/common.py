@@ -8,7 +8,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = config('DJANGO_SECRET_KEY')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config(
+    'DJANGO_ALLOWED_HOSTS',
+    cast=lambda value: [item.strip() for item in value.split(',')],
+    default='*'
+)
 
 # Installed Apps List
 
