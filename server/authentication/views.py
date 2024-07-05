@@ -11,7 +11,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.settings import api_settings as jwt_settings
 from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
 from account import choices
-from .serializers import PhoneSerializer, CookieTokenRefreshSerializer
+from .serializers import PhoneSerializer
 from .tasks import send_otp
 
 User = get_user_model()
@@ -36,7 +36,10 @@ class SendOtpView(GenericAPIView):
 
         otp_code = str(randint(111111, 999999))
 
-        send_otp.delay(phone, otp_code)
+        if settings.DEBUG:
+            print('OTP Code:', otp_code)
+        else:
+            send_otp.delay(phone, otp_code)
 
         settings.REDIS.set(cache_key, otp_code, ex=2 * 60)
 
