@@ -3,7 +3,7 @@ from celery import Celery
 
 os.environ.setdefault(
     'DJANGO_SETTINGS_MODULE',
-    'doctor_appointment_booking.settings'
+    'doctor_appointment_booking.settings.development'
 )
 
 app = Celery('doctor_appointment_booking')
