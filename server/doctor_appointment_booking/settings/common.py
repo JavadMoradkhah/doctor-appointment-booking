@@ -1,11 +1,12 @@
 import os
 from pathlib import Path
 from datetime import timedelta
+from decouple import config
 import redis
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = 'django-insecure-&fg5me%q-)==s%*dzy4=grh1l*(3ol3lj^z5nr2@u2n2p2_xs0'
+SECRET_KEY = config('DJANGO_SECRET_KEY')
 
 ALLOWED_HOSTS = []
 
@@ -72,11 +73,11 @@ TEMPLATES = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        "NAME": os.environ.get('DB_NAME'),
-        "USER": os.environ.get('DB_USER', 'postgres'),
-        "HOST": os.environ.get('DB_HOST', '127.0.0.1'),
-        "PORT": os.environ.get('DB_PORT', '5432'),
-        "PASSWORD": os.environ.get('DB_PASSWORD')
+        "NAME": config('DB_NAME'),
+        "USER": config('DB_USER', default='postgres'),
+        "HOST": config('DB_HOST', default='127.0.0.1'),
+        "PORT": config('DB_PORT', default='5432'),
+        "PASSWORD": config('DB_PASSWORD')
     }
 }
 
@@ -127,9 +128,9 @@ REST_FRAMEWORK = {
 
 # JWT Settings
 
-JWT_SECRET = os.environ.get('JWT_SECRET')
-JWT_AUDIENCE = os.environ.get('JWT_AUDIENCE')
-JWT_ISSUER = os.environ.get('JWT_ISSUER')
+JWT_SECRET = config('JWT_SECRET')
+JWT_AUDIENCE = config('JWT_AUDIENCE')
+JWT_ISSUER = config('JWT_ISSUER')
 JWT_REFRESH_TOKEN_COOKIE = 'refresh-token'
 
 SIMPLE_JWT = {
@@ -164,4 +165,4 @@ CELERY_TIMEZONE = 'Asia/Tehran'
 
 # API Keys
 
-API_KEY_SMS = os.environ.get('API_KEY_SMS')
+API_KEY_SMS = config('API_KEY_SMS')

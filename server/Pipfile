@@ -16,6 +16,7 @@ celery = {extras = ["redis"], version = "*"}
 redis = "*"
 requests = "==2.32.*"
 djangorestframework-simplejwt = "*"
+python-decouple = "*"
 
 [dev-packages]
 
