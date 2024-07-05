@@ -53,16 +53,15 @@ class CookieTokenObtainPairView(TokenObtainPairView):
 
         phone = serializer.validated_data['phone']
 
-        user = User.objects.filter(phone=phone).get()
+        user, created = User.objects.get_or_create(
+            phone=phone,
+            defaults={
+                'role': choices.USER_ROLE_PATIENT
+            }
+        )
 
-        if user and not user.is_active:
+        if not created and not user.is_active:
             raise AuthenticationFailed('حساب کاربری شما غیر فعال شده است')
-
-        if not user:
-            user = User.objects.create_user(
-                phone=phone,
-                role=choices.USER_ROLE_PATIENT
-            )
 
         # Issuing user tokens
         refresh = RefreshToken.for_user(user)
