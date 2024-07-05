@@ -138,7 +138,7 @@ JWT_ISSUER = config('JWT_ISSUER')
 JWT_REFRESH_TOKEN_COOKIE = 'refresh-token'
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(hours=1),
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=12),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": True,
 
