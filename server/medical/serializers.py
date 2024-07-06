@@ -11,12 +11,17 @@ class ProvinceSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'image', 'slug', 'created']
 
 
-class CitySerializer(serializers.ModelSerializer):
-    province = serializers.StringRelatedField()
+class CityListRetrieveSerializer(serializers.ModelSerializer):
+    province = serializers.CharField(source='province.name')
 
     class Meta:
         model = City
         fields = ['id', 'province', 'name', 'slug', 'created']
+
+class CityCreateUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = City
+        fields = ['province', 'name', 'slug']
 
 
 class ProvinceCitiesListSerializer(serializers.ModelSerializer):

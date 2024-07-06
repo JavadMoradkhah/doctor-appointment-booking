@@ -5,8 +5,8 @@ from rest_framework_nested import routers
 urlpatterns = []
 
 router = DefaultRouter()
-router.register(r'provinces', views.ProvinceApiView, basename='province')
-router.register(r'city', views.CityApiView, basename='city')
+router.register(r'provinces', views.ProvinceViewSet, basename='province')
+router.register(r'city', views.CityViewSet, basename='city')
 
 
 province_router = routers.NestedSimpleRouter(router, r'provinces', lookup='province')
