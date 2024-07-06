@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('otp/', views.SendOtpView.as_view()),
+    path('otp/', views.SendOtpView.as_view(), name='otp'),
     path(
         'login/',
         views.CookieTokenObtainPairView.as_view(),

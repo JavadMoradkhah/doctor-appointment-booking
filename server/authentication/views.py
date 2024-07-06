@@ -3,14 +3,11 @@ from django.conf import settings
 from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.generics import GenericAPIView
-from rest_framework.views import APIView
 from rest_framework.request import Request
 from rest_framework.response import Response
-from rest_framework.exceptions import Throttled, AuthenticationFailed
-from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.exceptions import Throttled
 from rest_framework_simplejwt.settings import api_settings as jwt_settings
 from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
-from account import choices
 from .serializers import PhoneSerializer
 from .tasks import send_otp
 
@@ -51,29 +48,17 @@ class CookieTokenObtainPairView(TokenObtainPairView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        phone = serializer.validated_data['phone']
-
-        user, created = User.objects.get_or_create(
-            phone=phone,
-            defaults={
-                'role': choices.USER_ROLE_PATIENT
-            }
-        )
-
-        if not created and not user.is_active:
-            raise AuthenticationFailed('حساب کاربری شما غیر فعال شده است')
-
-        # Issuing user tokens
-        refresh = RefreshToken.for_user(user)
+        access = serializer.validated_data['access']
+        refresh = serializer.validated_data['refresh']
 
         response = Response(
-            {'access': str(refresh.access_token)},
+            {'access': access},
             status=status.HTTP_200_OK
         )
 
         response.set_cookie(
             key=settings.JWT_REFRESH_TOKEN_COOKIE,
-            value=str(refresh),
+            value=refresh,
             max_age=jwt_settings.REFRESH_TOKEN_LIFETIME.total_seconds(),
             httponly=True
         )
