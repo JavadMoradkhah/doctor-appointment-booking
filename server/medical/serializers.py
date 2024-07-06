@@ -11,8 +11,8 @@ class ProvinceSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'image', 'slug', 'created']
 
 
-class CitySerializer(serializers.ModelSerializer):
-    province = serializers.StringRelatedField()
+class CityListRetrieveSerializer(serializers.ModelSerializer):
+    province = serializers.CharField(source='province.name')
 
     class Meta:
         model = City
