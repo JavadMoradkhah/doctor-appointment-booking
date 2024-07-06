@@ -1,10 +1,13 @@
 from typing import Any, Dict
+from django.contrib.auth import get_user_model
 from django.conf import settings
 from rest_framework import serializers
 from rest_framework.serializers import ValidationError
 from rest_framework.exceptions import AuthenticationFailed, NotAuthenticated
-from rest_framework_simplejwt.settings import api_settings as jwt_settings
-from rest_framework_simplejwt.serializers import TokenRefreshSerializer, TokenObtainSerializer as BaseTokenObtainSerializer
+from rest_framework_simplejwt.serializers import TokenRefreshSerializer, TokenObtainPairSerializer as BaseTokenObtainPairSerializer
+from account import choices as account_choices
+
+User = get_user_model()
 
 
 class PhoneSerializer(serializers.Serializer):
@@ -13,7 +16,7 @@ class PhoneSerializer(serializers.Serializer):
     )
 
 
-class TokenObtainSerializer(BaseTokenObtainSerializer):
+class TokenObtainPairSerializer(BaseTokenObtainPairSerializer):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         # Replacing the username field with a new one that has validation
@@ -48,7 +51,31 @@ class TokenObtainSerializer(BaseTokenObtainSerializer):
         # Removing the otp code from Redis so it can not be used again
         settings.REDIS.delete(cache_key)
 
-        return attrs
+        user, created = User.objects.get_or_create(
+            phone=phone,
+            defaults={
+                'role': account_choices.USER_ROLE_PATIENT
+            }
+        )
+
+        if not created and not user.is_active:
+            raise AuthenticationFailed('حساب کاربری شما غیر فعال شده است')
+
+        refresh = self.get_token(user)
+
+        data = {
+            'refresh': str(refresh),
+            'access': str(refresh.access_token)
+        }
+
+        return data
+
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        token['phone'] = user.phone
+        token['role'] = user.role
+        return token
 
 
 class CookieTokenRefreshSerializer(TokenRefreshSerializer):

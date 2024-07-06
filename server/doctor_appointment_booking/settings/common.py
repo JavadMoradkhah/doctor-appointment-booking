@@ -151,7 +151,7 @@ SIMPLE_JWT = {
     "USER_ID_FIELD": "id",
     "USER_ID_CLAIM": "sub",
 
-    "TOKEN_OBTAIN_SERIALIZER": "authentication.serializers.TokenObtainSerializer",
+    "TOKEN_OBTAIN_SERIALIZER": "authentication.serializers.TokenObtainPairSerializer",
     "TOKEN_REFRESH_SERIALIZER": "authentication.serializers.CookieTokenRefreshSerializer"
 }
 
