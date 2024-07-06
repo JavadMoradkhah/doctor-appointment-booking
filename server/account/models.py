@@ -9,19 +9,27 @@ class User(AbstractBaseUser):
     phone = models.CharField(
         max_length=11,
         unique=True,
-        validators=[PhoneValidator()]
+        validators=[PhoneValidator()],
+        verbose_name='شماره موبایل'
     )
     role = models.CharField(
         max_length=10,
         choices=choices.USER_ROLE_CHOICES,
-        default=choices.USER_ROLE_PATIENT
+        default=choices.USER_ROLE_PATIENT,
+        verbose_name='نقش'
     )
-    is_active = models.BooleanField(default=True)
-    joined_at = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True, verbose_name='فعال')
+    joined_at = models.DateTimeField(
+        auto_now_add=True, verbose_name='تاریخ عضویت'
+    )
 
     objects = UserManager()
 
     USERNAME_FIELD = 'phone'
+
+    class Meta:
+        verbose_name = 'کاربر'
+        verbose_name = 'کاربران'
 
     def __str__(self):
         return self.phone
