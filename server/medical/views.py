@@ -9,7 +9,7 @@ from rest_framework.permissions import SAFE_METHODS
 # Create your views here.
 
 
-class ProvinceApiView(viewsets.ModelViewSet):
+class ProvinceViewSet(viewsets.ModelViewSet):
     permission_classes = [
         IsAuthenticatedOrReadOnly,
         IsAdminOrReadOnly
@@ -19,7 +19,7 @@ class ProvinceApiView(viewsets.ModelViewSet):
     pagination_class = Pagination
 
 
-class CityApiView(viewsets.ModelViewSet):
+class CityViewSet(viewsets.ModelViewSet):
     permission_classes = [
         IsAuthenticatedOrReadOnly,
         IsAdminOrReadOnly
