@@ -5,6 +5,7 @@ from .models import Province, City
 from .pagination import Pagination
 from . import serializers
 from rest_framework.response import Response
+from rest_framework.permissions import SAFE_METHODS
 # Create your views here.
 
 
@@ -24,8 +25,12 @@ class CityApiView(viewsets.ModelViewSet):
         IsAdminOrReadOnly
     ]
     queryset = City.objects.all()
-    serializer_class = serializers.CitySerializer
     pagination_class = Pagination
+
+    def get_serializer_class(self):
+        if self.request.method not in SAFE_METHODS:
+            return serializers.CityCreateUpdateSerializer
+        return serializers.CityListRetrieveSerializer
 
 
 class ProvinceCitiesViewSet(viewsets.ViewSet):
