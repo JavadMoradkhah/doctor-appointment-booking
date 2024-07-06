@@ -18,6 +18,11 @@ class CitySerializer(serializers.ModelSerializer):
         model = City
         fields = ['id', 'province', 'name', 'slug', 'created']
 
+class CityCreateUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = City
+        fields = ['province', 'name', 'slug']
+
 
 class ProvinceCitiesListSerializer(serializers.ModelSerializer):
     class Meta:
