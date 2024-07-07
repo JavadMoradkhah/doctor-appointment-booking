@@ -25,9 +25,9 @@ router.register(
 )
 
 router.register(
-    r'user-insurance',
+    r'my-insurances',
     views.UserInsuranceViewSet,
-    basename='user-insurance'
+    basename='my-insurances'
 )
 
 province_router = routers.NestedSimpleRouter(
