@@ -23,19 +23,34 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='joined_at',
+            << << << < HEAD
             field=models.DateTimeField(
                 auto_now_add=True, verbose_name='تاریخ عضویت'),
+            == == == =
+            field=models.DateTimeField(
+                auto_now_add=True, verbose_name='تاریخ عضویت'),
+            >>>>>> > b0c61faa73121787b4d58268d5c40e69b2db6fde
         ),
         migrations.AlterField(
             model_name='user',
             name='phone',
+            << << << < HEAD
             field=models.CharField(max_length=11, unique=True, validators=[
                                    account.validators.PhoneValidator()], verbose_name='شماره موبایل'),
+            == == == =
+            field=models.CharField(max_length=11, unique=True, validators=[
+                                   account.validators.PhoneValidator()], verbose_name='شماره موبایل'),
+            >>>>>> > b0c61faa73121787b4d58268d5c40e69b2db6fde
         ),
         migrations.AlterField(
             model_name='user',
             name='role',
+            << << << < HEAD
             field=models.CharField(choices=[('admin', 'مدیر'), ('doctor', 'دکتر'), (
                 'patient', 'بیمار')], default='patient', max_length=10, verbose_name='نقش'),
+            == == == =
+            field=models.CharField(choices=[('admin', 'مدیر'), ('doctor', 'دکتر'), (
+                'patient', 'بیمار')], default='patient', max_length=10, verbose_name='نقش'),
+            >>>>>> > b0c61faa73121787b4d58268d5c40e69b2db6fde
         ),
     ]
