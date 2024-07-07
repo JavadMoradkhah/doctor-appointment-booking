@@ -8,7 +8,7 @@ class ProvinceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Province
-        fields = ['id', 'name', 'image', 'slug', 'created']
+        fields = ['id', 'name', 'image', 'slug']
 
 
 class CityListRetrieveSerializer(serializers.ModelSerializer):
@@ -16,7 +16,7 @@ class CityListRetrieveSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = City
-        fields = ['id', 'province', 'name', 'slug', 'created']
+        fields = ['id', 'name', 'slug', 'province']
 
 
 class CityCreateUpdateSerializer(serializers.ModelSerializer):
@@ -38,7 +38,6 @@ class InsuranceSerializer(serializers.ModelSerializer):
 
 
 class UserInsuranceSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = UserInsurance
         fields = ['id', 'insurance', 'insurance_code']
