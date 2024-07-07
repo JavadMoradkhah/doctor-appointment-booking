@@ -9,7 +9,9 @@ User = get_user_model()
 class Province(models.Model):
     name = models.CharField(max_length=50, unique=True)
     image = models.ImageField(
-        upload_to='province/images/', validators=[validators.validate_image])
+        upload_to='uploads/medical/images',
+        validators=[validators.validate_image]
+    )
     slug = models.SlugField(max_length=50, unique=True)
 
     def __str__(self):
@@ -83,7 +85,7 @@ class MedicalCenter(models.Model):
     )
     introduction = models.TextField(max_length=500)
     photo = models.ImageField(
-        upload_to='uploads/images/medical', null=True, blank=True
+        upload_to='uploads/medical/images', null=True, blank=True
     )
 
     def __str__(self) -> str:
@@ -134,7 +136,7 @@ class MedicalCenterGallery(models.Model):
         related_name='gallery'
     )
     photo = models.ImageField(
-        upload_to='uploads/images/medical'
+        upload_to='uploads/medical/images'
     )
     caption = models.CharField(max_length=100, null=True, blank=True)
 
