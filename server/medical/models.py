@@ -7,12 +7,12 @@ User = get_user_model()
 
 
 class Province(models.Model):
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50, unique=True, allow_unicode=True)
     image = models.ImageField(
         upload_to='uploads/medical/images',
         validators=[validators.validate_image]
     )
-    slug = models.SlugField(max_length=50, unique=True)
 
     def __str__(self):
         return self.name
@@ -20,16 +20,19 @@ class Province(models.Model):
 
 class City(models.Model):
     province = models.ForeignKey(
-        Province, on_delete=models.CASCADE, related_name='cities')
-    name = models.CharField(max_length=50, unique=True)
-    slug = models.SlugField(max_length=50, unique=True)
+        Province,
+        on_delete=models.CASCADE,
+        related_name='cities'
+    )
+    name = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50, unique=True, allow_unicode=True)
 
     def __str__(self):
         return self.name
 
 
 class Insurance(models.Model):
-    name = models.CharField(max_length=60)
+    name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
@@ -37,13 +40,21 @@ class Insurance(models.Model):
 
 class UserInsurance(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='user_insurances')
+        User,
+        on_delete=models.CASCADE,
+        related_name='insurances'
+    )
     insurance = models.ForeignKey(
-        Insurance, on_delete=models.PROTECT, related_name='user_insurances')
-    insurance_code = models.CharField(max_length=50, unique=True)
-
-    class Meta:
-        unique_together = ['user', 'insurance_code']
+        Insurance,
+        on_delete=models.PROTECT,
+        related_name='insurances'
+    )
+    insurance_code = models.CharField(
+        max_length=50,
+        unique=True,
+        null=True,
+        blank=True
+    )
 
     def __str__(self):
         return self.insurance_code
