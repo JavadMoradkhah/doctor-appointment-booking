@@ -15,12 +15,12 @@ class ProvinceRetrieveSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'slug', 'image']
 
 
-class ProvinceSerializer(serializers.ModelSerializer):
+class ProvinceCreateUpdateSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(validators=[validators.validate_image])
 
     class Meta:
         model = Province
-        fields = ['id', 'name', 'image', 'slug']
+        fields = ['name', 'image', 'slug']
 
 
 class CityListRetrieveSerializer(serializers.ModelSerializer):
