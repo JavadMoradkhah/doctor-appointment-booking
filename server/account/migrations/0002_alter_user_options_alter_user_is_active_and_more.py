@@ -23,16 +23,19 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='joined_at',
-            field=models.DateTimeField(auto_now_add=True, verbose_name='تاریخ عضویت'),
+            field=models.DateTimeField(
+                auto_now_add=True, verbose_name='تاریخ عضویت'),
         ),
         migrations.AlterField(
             model_name='user',
             name='phone',
-            field=models.CharField(max_length=11, unique=True, validators=[account.validators.PhoneValidator()], verbose_name='شماره موبایل'),
+            field=models.CharField(max_length=11, unique=True, validators=[
+                                   account.validators.PhoneValidator()], verbose_name='شماره موبایل'),
         ),
         migrations.AlterField(
             model_name='user',
             name='role',
-            field=models.CharField(choices=[('admin', 'مدیر'), ('doctor', 'دکتر'), ('patient', 'بیمار')], default='patient', max_length=10, verbose_name='نقش'),
+            field=models.CharField(choices=[('admin', 'مدیر'), ('doctor', 'دکتر'), (
+                'patient', 'بیمار')], default='patient', max_length=10, verbose_name='نقش'),
         ),
     ]
