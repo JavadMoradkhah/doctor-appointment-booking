@@ -8,7 +8,6 @@ class ProvinceAdmin(admin.ModelAdmin):
     list_display = ('name',)
 
 
-
 @admin.register(models.City)
 class CityAdmin(admin.ModelAdmin):
     list_display = ('name',)
@@ -22,3 +21,18 @@ class InsuranceAdmin(admin.ModelAdmin):
 @admin.register(models.UserInsurance)
 class UserInsuranceAdmin(admin.ModelAdmin):
     list_display = ('insurance_code',)
+
+
+@admin.register(models.Facility)
+class FacilityAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug')
+
+
+@admin.register(models.MedicalCenter)
+class MedicalCenterAdmin(admin.ModelAdmin):
+    list_display = ('name', 'slug')
+
+
+@admin.register(models.MedicalCenterSchedule)
+class MedicalCenterScheduleAdmin(admin.ModelAdmin):
+    list_display = ('medical_center', 'day', 'open_at', 'close_at')
