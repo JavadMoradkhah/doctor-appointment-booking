@@ -9,13 +9,13 @@ router = DefaultRouter()
 router.register(
     r'provinces',
     views.ProvinceViewSet,
-    basename='province'
+    basename='provinces'
 )
 
 router.register(
-    r'city',
+    r'cities',
     views.CityViewSet,
-    basename='city'
+    basename='cities'
 )
 
 router.register(
