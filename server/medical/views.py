@@ -14,7 +14,7 @@ class ProvinceViewSet(viewsets.ModelViewSet):
 
 
 class CityViewSet(viewsets.ModelViewSet):
-    queryset = City.objects.all()
+    queryset = City.objects.select_related('province').order_by('name').all()
     permission_classes = [IsAuthenticated, IsAdminUser]
 
     def get_serializer_class(self):
