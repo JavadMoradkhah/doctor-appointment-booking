@@ -8,9 +8,17 @@ from . import serializers
 
 
 class ProvinceViewSet(viewsets.ModelViewSet):
-    queryset = Province.objects.all()
-    serializer_class = serializers.ProvinceSerializer
+    queryset = Province.objects.order_by('name').all()
     permission_classes = [IsAdminOrReadOnly]
+
+    def get_serializer_class(self):
+        if self.request.method not in SAFE_METHODS:
+            return serializers.ProvinceCreateUpdateSerializer
+
+        if self.action == 'retrieve':
+            return serializers.ProvinceRetrieveSerializer
+
+        return serializers.ProvinceListSerializer
 
 
 class CityViewSet(viewsets.ModelViewSet):
