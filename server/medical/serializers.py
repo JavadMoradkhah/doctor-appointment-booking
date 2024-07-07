@@ -1,14 +1,27 @@
-from rest_framework import serializers
-from . import validators
+from rest_framework import serializers, status
+from rest_framework.serializers import ValidationError
 from .models import Province, City, Insurance, UserInsurance
+from . import validators
 
 
-class ProvinceSerializer(serializers.ModelSerializer):
+class ProvinceListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Province
+        fields = ['id', 'name', 'slug']
+
+
+class ProvinceRetrieveSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Province
+        fields = ['id', 'name', 'slug', 'image']
+
+
+class ProvinceCreateUpdateSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(validators=[validators.validate_image])
 
     class Meta:
         model = Province
-        fields = ['id', 'name', 'image', 'slug', 'created']
+        fields = ['name', 'image', 'slug']
 
 
 class CityListRetrieveSerializer(serializers.ModelSerializer):
@@ -16,7 +29,7 @@ class CityListRetrieveSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = City
-        fields = ['id', 'province', 'name', 'slug', 'created']
+        fields = ['id', 'name', 'slug', 'province']
 
 
 class CityCreateUpdateSerializer(serializers.ModelSerializer):
@@ -37,12 +50,29 @@ class InsuranceSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 
-class UserInsuranceSerializer(serializers.ModelSerializer):
+class UserInsuranceListRetrieveSerializer(serializers.ModelSerializer):
+    insurance = serializers.CharField(source='insurance.name')
 
     class Meta:
         model = UserInsurance
         fields = ['id', 'insurance', 'insurance_code']
 
+
+class UserInsuranceCreateUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserInsurance
+        fields = ['id', 'insurance', 'insurance_code']
+
+    def validate(self, attrs):
+        user_id = self.context['user_id']
+
+        if UserInsurance.objects.filter(user_id=user_id).count() >= 2:
+            raise ValidationError(
+                'امکان ثبت بیشتراز 2 بیمه وجود ندارد'
+            )
+
+        return super().validate(attrs)
+
     def create(self, validated_data):
-        validated_data['user_id'] = self.context['user_id']
-        return UserInsurance.objects.create(**validated_data)
+        user_id = self.context['user_id']
+        return UserInsurance.objects.create(**validated_data, user_id=user_id)

@@ -1,0 +1,30 @@
+[
+  {
+    "model": "medical.insurance",
+    "pk": 1,
+    "fields": {
+      "name": "سلامت"
+    }
+  },
+  {
+    "model": "medical.insurance",
+    "pk": 2,
+    "fields": {
+      "name": "تامین اجتماعی"
+    }
+  },
+  {
+    "model": "medical.insurance",
+    "pk": 3,
+    "fields": {
+      "name": "تکمیلی"
+    }
+  },
+  {
+    "model": "medical.insurance",
+    "pk": 4,
+    "fields": {
+      "name": "نیروهای مسلح"
+    }
+  }
+]
