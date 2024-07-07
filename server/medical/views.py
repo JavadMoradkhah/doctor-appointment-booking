@@ -1,6 +1,5 @@
-from rest_framework import viewsets, status
+from rest_framework import viewsets
 from rest_framework.response import Response
-from rest_framework.exceptions import APIException
 from rest_framework.permissions import SAFE_METHODS, IsAuthenticated, IsAdminUser
 from authentication.permissions import IsAdminOrReadOnly, IsPatient
 from .models import Province, City, Insurance, UserInsurance
@@ -48,7 +47,6 @@ class InsuranceViewSet(viewsets.ModelViewSet):
 
 class UserInsuranceViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, IsPatient]
-    serializer_class = serializers.UserInsuranceSerializer
 
     def get_queryset(self):
         return UserInsurance.objects.filter(
@@ -64,12 +62,3 @@ class UserInsuranceViewSet(viewsets.ModelViewSet):
         return {
             'user_id': self.request.user.id
         }
-
-    def create(self, request, *args, **kwargs):
-        if UserInsurance.objects.filter(user_id=request.user.id).count() >= 2:
-            raise APIException(
-                detail='امکان ثبت بیشتراز 2 بیمه وجود ندارد',
-                code=status.HTTP_400_BAD_REQUEST
-            )
-
-        return super().create(request, *args, **kwargs)

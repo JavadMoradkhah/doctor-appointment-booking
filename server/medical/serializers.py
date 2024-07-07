@@ -1,4 +1,5 @@
-from rest_framework import serializers
+from rest_framework import serializers, status
+from rest_framework.serializers import ValidationError
 from .models import Province, City, Insurance, UserInsurance
 from . import validators
 
@@ -62,6 +63,16 @@ class UserInsuranceCreateUpdateSerializer(serializers.ModelSerializer):
         model = UserInsurance
         fields = ['id', 'insurance', 'insurance_code']
 
+    def validate(self, attrs):
+        user_id = self.context['user_id']
+
+        if UserInsurance.objects.filter(user_id=user_id).count() >= 2:
+            raise ValidationError(
+                'امکان ثبت بیشتراز 2 بیمه وجود ندارد'
+            )
+
+        return super().validate(attrs)
+
     def create(self, validated_data):
-        validated_data['user_id'] = self.context['user_id']
-        return UserInsurance.objects.create(**validated_data)
+        user_id = self.context['user_id']
+        return UserInsurance.objects.create(**validated_data, user_id=user_id)
