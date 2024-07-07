@@ -1,0 +1,3260 @@
+[
+  {
+    "model": "medical.city",
+    "pk": 1,
+    "fields": {
+      "province": 1,
+      "name": "آشتيان",
+      "slug": "ashtian"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 2,
+    "fields": {
+      "province": 1,
+      "name": "اراک",
+      "slug": "arak"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 3,
+    "fields": {
+      "province": 1,
+      "name": "تفرش",
+      "slug": "tafresh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 4,
+    "fields": {
+      "province": 1,
+      "name": "خمين",
+      "slug": "khomain"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 5,
+    "fields": {
+      "province": 1,
+      "name": "خنداب",
+      "slug": "varkaroud"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 6,
+    "fields": {
+      "province": 1,
+      "name": "دليجان",
+      "slug": "delijan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 7,
+    "fields": {
+      "province": 1,
+      "name": "زرنديه",
+      "slug": "zarandieh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 8,
+    "fields": {
+      "province": 1,
+      "name": "ساوه",
+      "slug": "saveh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 9,
+    "fields": {
+      "province": 1,
+      "name": "شازند",
+      "slug": "shazand"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 10,
+    "fields": {
+      "province": 1,
+      "name": "فراهان",
+      "slug": "farahan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 11,
+    "fields": {
+      "province": 1,
+      "name": "محلات",
+      "slug": "mahalat"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 12,
+    "fields": {
+      "province": 1,
+      "name": "کميجان",
+      "slug": "komijan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 13,
+    "fields": {
+      "province": 2,
+      "name": "آستارا",
+      "slug": "astara"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 14,
+    "fields": {
+      "province": 2,
+      "name": "آستانه اشرفيه",
+      "slug": "astaneh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 15,
+    "fields": {
+      "province": 2,
+      "name": "املش",
+      "slug": "amlash"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 16,
+    "fields": {
+      "province": 2,
+      "name": "بندرانزلي",
+      "slug": "bandar-anzali"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 17,
+    "fields": {
+      "province": 2,
+      "name": "رشت",
+      "slug": "rasht"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 18,
+    "fields": {
+      "province": 2,
+      "name": "رضوانشهر",
+      "slug": "rezvanshahr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 19,
+    "fields": {
+      "province": 2,
+      "name": "رودبار",
+      "slug": "rudbar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 20,
+    "fields": {
+      "province": 2,
+      "name": "رودسر",
+      "slug": "rudsar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 21,
+    "fields": {
+      "province": 2,
+      "name": "شفت",
+      "slug": "shafts"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 22,
+    "fields": {
+      "province": 2,
+      "name": "صومعه سرا",
+      "slug": "somesara"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 23,
+    "fields": {
+      "province": 2,
+      "name": "طوالش",
+      "slug": "tvalsh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 24,
+    "fields": {
+      "province": 2,
+      "name": "فومن",
+      "slug": "fooman"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 25,
+    "fields": {
+      "province": 2,
+      "name": "لاهيجان",
+      "slug": "lahijan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 26,
+    "fields": {
+      "province": 2,
+      "name": "لنگرود",
+      "slug": "langerud"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 27,
+    "fields": {
+      "province": 2,
+      "name": "ماسال",
+      "slug": "masal"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 28,
+    "fields": {
+      "province": 3,
+      "name": "آمل",
+      "slug": "amol"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 29,
+    "fields": {
+      "province": 3,
+      "name": "بابل",
+      "slug": "babol"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 30,
+    "fields": {
+      "province": 3,
+      "name": "بابلسر",
+      "slug": "babolsar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 31,
+    "fields": {
+      "province": 3,
+      "name": "بهشهر",
+      "slug": "behshahr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 32,
+    "fields": {
+      "province": 3,
+      "name": "تنكابن",
+      "slug": "tonkabon"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 33,
+    "fields": {
+      "province": 3,
+      "name": "جويبار",
+      "slug": "juybar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 34,
+    "fields": {
+      "province": 3,
+      "name": "رامسر",
+      "slug": "ramsar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 35,
+    "fields": {
+      "province": 3,
+      "name": "سارئ",
+      "slug": "infectious"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 36,
+    "fields": {
+      "province": 3,
+      "name": "سوادكوه",
+      "slug": "savadkooh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 37,
+    "fields": {
+      "province": 3,
+      "name": "عباس آباد",
+      "slug": "abbas-abad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 38,
+    "fields": {
+      "province": 3,
+      "name": "فريدونكنار",
+      "slug": "fereidoon'kenar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 39,
+    "fields": {
+      "province": 3,
+      "name": "قائم شهر",
+      "slug": "qaemshahr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 40,
+    "fields": {
+      "province": 3,
+      "name": "محمودآباد",
+      "slug": "mahmudabad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 41,
+    "fields": {
+      "province": 3,
+      "name": "نور",
+      "slug": "nur"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 42,
+    "fields": {
+      "province": 3,
+      "name": "نوشهر",
+      "slug": "noshahr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 43,
+    "fields": {
+      "province": 3,
+      "name": "چالوس",
+      "slug": "chalus"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 44,
+    "fields": {
+      "province": 3,
+      "name": "کلاردشت",
+      "slug": "kelardasht"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 45,
+    "fields": {
+      "province": 3,
+      "name": "گلوگاه",
+      "slug": "galugah"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 46,
+    "fields": {
+      "province": 4,
+      "name": "آذرشهر",
+      "slug": "azarshahr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 47,
+    "fields": {
+      "province": 4,
+      "name": "اسکو",
+      "slug": "osku"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 48,
+    "fields": {
+      "province": 4,
+      "name": "اهر",
+      "slug": "ahar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 49,
+    "fields": {
+      "province": 4,
+      "name": "بستان آباد",
+      "slug": "bostanabad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 50,
+    "fields": {
+      "province": 4,
+      "name": "بناب",
+      "slug": "bonab"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 51,
+    "fields": {
+      "province": 4,
+      "name": "تبريز",
+      "slug": "tabriz"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 52,
+    "fields": {
+      "province": 4,
+      "name": "جلفا",
+      "slug": "jolfa"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 53,
+    "fields": {
+      "province": 4,
+      "name": "سراب",
+      "slug": "sarab"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 54,
+    "fields": {
+      "province": 4,
+      "name": "شبستر",
+      "slug": "shabestar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 55,
+    "fields": {
+      "province": 4,
+      "name": "عجب شير",
+      "slug": "ajabshir"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 56,
+    "fields": {
+      "province": 4,
+      "name": "مراغه",
+      "slug": "maragheh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 57,
+    "fields": {
+      "province": 4,
+      "name": "مرند",
+      "slug": "marand"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 58,
+    "fields": {
+      "province": 4,
+      "name": "ملکان",
+      "slug": "malakan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 59,
+    "fields": {
+      "province": 4,
+      "name": "ميانه",
+      "slug": "mianeh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 60,
+    "fields": {
+      "province": 4,
+      "name": "هريس",
+      "slug": "harris"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 61,
+    "fields": {
+      "province": 4,
+      "name": "هشترود",
+      "slug": "hashtrood"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 62,
+    "fields": {
+      "province": 4,
+      "name": "ورزقان",
+      "slug": "varzeghan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 63,
+    "fields": {
+      "province": 4,
+      "name": "چاراويماق",
+      "slug": "charoymagh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 64,
+    "fields": {
+      "province": 4,
+      "name": "کليبر",
+      "slug": "kalibar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 65,
+    "fields": {
+      "province": 5,
+      "name": "اروميه",
+      "slug": "address:"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 66,
+    "fields": {
+      "province": 5,
+      "name": "اشنويه",
+      "slug": "oshnavieh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 67,
+    "fields": {
+      "province": 5,
+      "name": "بوكان",
+      "slug": "bukan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 68,
+    "fields": {
+      "province": 5,
+      "name": "تكاب",
+      "slug": "tekab"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 69,
+    "fields": {
+      "province": 5,
+      "name": "سردشت",
+      "slug": "sardasht"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 70,
+    "fields": {
+      "province": 5,
+      "name": "سلماس",
+      "slug": "salmas"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 71,
+    "fields": {
+      "province": 5,
+      "name": "شاهين دژ",
+      "slug": "shahindezh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 72,
+    "fields": {
+      "province": 5,
+      "name": "شوط",
+      "slug": "round"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 73,
+    "fields": {
+      "province": 5,
+      "name": "ماكو",
+      "slug": "maku"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 74,
+    "fields": {
+      "province": 5,
+      "name": "مهاباد",
+      "slug": "mahabad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 75,
+    "fields": {
+      "province": 5,
+      "name": "مياندوآب",
+      "slug": "miandoab"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 76,
+    "fields": {
+      "province": 5,
+      "name": "نقده",
+      "slug": "tinsel"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 77,
+    "fields": {
+      "province": 5,
+      "name": "پلدشت",
+      "slug": "demands"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 78,
+    "fields": {
+      "province": 5,
+      "name": "پيرانشهر",
+      "slug": "piranshar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 79,
+    "fields": {
+      "province": 5,
+      "name": "چالدران",
+      "slug": "chalderan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 80,
+    "fields": {
+      "province": 6,
+      "name": "اسلام آبادغرب",
+      "slug": "islamic-garb"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 81,
+    "fields": {
+      "province": 6,
+      "name": "ثلاث باباجاني",
+      "slug": "salas-babajani"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 82,
+    "fields": {
+      "province": 6,
+      "name": "جوانرود",
+      "slug": "javanrood"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 83,
+    "fields": {
+      "province": 6,
+      "name": "دالاهو",
+      "slug": "dalahoo"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 84,
+    "fields": {
+      "province": 6,
+      "name": "روانسر",
+      "slug": "rawansar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 85,
+    "fields": {
+      "province": 6,
+      "name": "سرپل ذهاب",
+      "slug": "sarpolzohab"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 86,
+    "fields": {
+      "province": 6,
+      "name": "سنقر",
+      "slug": "falcon"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 87,
+    "fields": {
+      "province": 6,
+      "name": "صحنه",
+      "slug": "scene"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 88,
+    "fields": {
+      "province": 6,
+      "name": "قصرشيرين",
+      "slug": "qasr-e-shirin"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 89,
+    "fields": {
+      "province": 6,
+      "name": "هرسين",
+      "slug": "harsin"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 90,
+    "fields": {
+      "province": 6,
+      "name": "پاوه",
+      "slug": "pave"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 91,
+    "fields": {
+      "province": 6,
+      "name": "کرمانشاه",
+      "slug": "kermanshah"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 92,
+    "fields": {
+      "province": 6,
+      "name": "کنگاور",
+      "slug": "kangavar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 93,
+    "fields": {
+      "province": 6,
+      "name": "گيلانغرب",
+      "slug": "gilangharb"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 94,
+    "fields": {
+      "province": 7,
+      "name": "آبادان",
+      "slug": "abadan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 95,
+    "fields": {
+      "province": 7,
+      "name": "انديمشک",
+      "slug": "andimeshk"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 96,
+    "fields": {
+      "province": 7,
+      "name": "اهواز",
+      "slug": "ahvaz"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 97,
+    "fields": {
+      "province": 7,
+      "name": "ايذه",
+      "slug": "izeh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 98,
+    "fields": {
+      "province": 7,
+      "name": "باغ ملک",
+      "slug": "garden-property"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 99,
+    "fields": {
+      "province": 7,
+      "name": "باوي",
+      "slug": "bavi"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 100,
+    "fields": {
+      "province": 7,
+      "name": "بندرماهشهر",
+      "slug": "bandar-e-mahshahr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 101,
+    "fields": {
+      "province": 7,
+      "name": "بهبهان",
+      "slug": "pa"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 102,
+    "fields": {
+      "province": 7,
+      "name": "خرمشهر",
+      "slug": "khorramshahr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 103,
+    "fields": {
+      "province": 7,
+      "name": "دزفول",
+      "slug": "dezful"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 104,
+    "fields": {
+      "province": 7,
+      "name": "دشت آزادگان",
+      "slug": "dashteazadegan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 105,
+    "fields": {
+      "province": 7,
+      "name": "رامشير",
+      "slug": "ramshir"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 106,
+    "fields": {
+      "province": 7,
+      "name": "رامهرمز",
+      "slug": "rāmhormoz"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 107,
+    "fields": {
+      "province": 7,
+      "name": "شادگان",
+      "slug": "shadegan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 108,
+    "fields": {
+      "province": 7,
+      "name": "شوش",
+      "slug": "susa"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 109,
+    "fields": {
+      "province": 7,
+      "name": "شوشتر",
+      "slug": "shushtar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 110,
+    "fields": {
+      "province": 7,
+      "name": "لالي",
+      "slug": "lali"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 111,
+    "fields": {
+      "province": 7,
+      "name": "مسجدسليمان",
+      "slug": "masjed-soleiman"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 112,
+    "fields": {
+      "province": 7,
+      "name": "هنديجان",
+      "slug": "hendijan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 113,
+    "fields": {
+      "province": 7,
+      "name": "کارون",
+      "slug": "karun"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 114,
+    "fields": {
+      "province": 7,
+      "name": "گتوند",
+      "slug": "scroll-down"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 115,
+    "fields": {
+      "province": 8,
+      "name": "آباده",
+      "slug": "abade"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 116,
+    "fields": {
+      "province": 8,
+      "name": "ارسنجان",
+      "slug": "arsanjan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 117,
+    "fields": {
+      "province": 8,
+      "name": "استهبان",
+      "slug": "estahban"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 118,
+    "fields": {
+      "province": 8,
+      "name": "اقليد",
+      "slug": "eghlid"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 119,
+    "fields": {
+      "province": 8,
+      "name": "بوانات",
+      "slug": "bavanat"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 120,
+    "fields": {
+      "province": 8,
+      "name": "جهرم",
+      "slug": "jahrom"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 121,
+    "fields": {
+      "province": 8,
+      "name": "خرم بيد",
+      "slug": "khorrambid"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 122,
+    "fields": {
+      "province": 8,
+      "name": "خنج",
+      "slug": "khonj"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 123,
+    "fields": {
+      "province": 8,
+      "name": "داراب",
+      "slug": "darab"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 124,
+    "fields": {
+      "province": 8,
+      "name": "رستم",
+      "slug": "rustam"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 125,
+    "fields": {
+      "province": 8,
+      "name": "زرين دشت",
+      "slug": "zarrindasht"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 126,
+    "fields": {
+      "province": 8,
+      "name": "سروستان",
+      "slug": "sarvestan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 127,
+    "fields": {
+      "province": 8,
+      "name": "سپيدان",
+      "slug": "sepidan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 128,
+    "fields": {
+      "province": 8,
+      "name": "شيراز",
+      "slug": "shiraz"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 129,
+    "fields": {
+      "province": 8,
+      "name": "فراشبند",
+      "slug": "farashband"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 130,
+    "fields": {
+      "province": 8,
+      "name": "فسا",
+      "slug": "fasa"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 131,
+    "fields": {
+      "province": 8,
+      "name": "فيروزآباد",
+      "slug": "firozabad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 132,
+    "fields": {
+      "province": 8,
+      "name": "قيروکارزين",
+      "slug": "qyrvkarzyn"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 133,
+    "fields": {
+      "province": 8,
+      "name": "لارستان",
+      "slug": "larestan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 134,
+    "fields": {
+      "province": 8,
+      "name": "لامرد",
+      "slug": "lamerd"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 135,
+    "fields": {
+      "province": 8,
+      "name": "مرودشت",
+      "slug": "marvdasht"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 136,
+    "fields": {
+      "province": 8,
+      "name": "ممسني",
+      "slug": "mamasani"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 137,
+    "fields": {
+      "province": 8,
+      "name": "مهر",
+      "slug": "stamp"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 138,
+    "fields": {
+      "province": 8,
+      "name": "پاسارگاد",
+      "slug": "pasargad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 139,
+    "fields": {
+      "province": 8,
+      "name": "کازرون",
+      "slug": "kazeroon"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 140,
+    "fields": {
+      "province": 8,
+      "name": "کوار",
+      "slug": "kovar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 141,
+    "fields": {
+      "province": 9,
+      "name": "انار",
+      "slug": "pomegranate"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 142,
+    "fields": {
+      "province": 9,
+      "name": "بافت",
+      "slug": "tissue"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 143,
+    "fields": {
+      "province": 9,
+      "name": "بردسير",
+      "slug": "bardsir"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 144,
+    "fields": {
+      "province": 9,
+      "name": "بم",
+      "slug": "bass"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 145,
+    "fields": {
+      "province": 9,
+      "name": "جيرفت",
+      "slug": "jiroft"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 146,
+    "fields": {
+      "province": 9,
+      "name": "رابر",
+      "slug": "rabor"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 147,
+    "fields": {
+      "province": 9,
+      "name": "راور",
+      "slug": "raver"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 148,
+    "fields": {
+      "province": 9,
+      "name": "رفسنجان",
+      "slug": "rafsanjan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 149,
+    "fields": {
+      "province": 9,
+      "name": "رودبارجنوب",
+      "slug": "rvdbarjnvb"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 150,
+    "fields": {
+      "province": 9,
+      "name": "ريگان",
+      "slug": "reagan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 151,
+    "fields": {
+      "province": 9,
+      "name": "زرند",
+      "slug": "zarand"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 152,
+    "fields": {
+      "province": 9,
+      "name": "سيرجان",
+      "slug": "sirjan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 153,
+    "fields": {
+      "province": 9,
+      "name": "شهربابك",
+      "slug": "shahrbabak"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 154,
+    "fields": {
+      "province": 9,
+      "name": "عنبرآباد",
+      "slug": "anbarabad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 155,
+    "fields": {
+      "province": 9,
+      "name": "قلعه گنج",
+      "slug": "castle-treasure"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 156,
+    "fields": {
+      "province": 9,
+      "name": "كرمان",
+      "slug": "kerman"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 157,
+    "fields": {
+      "province": 9,
+      "name": "كهنوج",
+      "slug": "kahnooj"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 158,
+    "fields": {
+      "province": 9,
+      "name": "كوهبنان",
+      "slug": "kuhbanan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 159,
+    "fields": {
+      "province": 9,
+      "name": "منوجان",
+      "slug": "manoujan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 160,
+    "fields": {
+      "province": 9,
+      "name": "نرماشير",
+      "slug": "narmashir"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 161,
+    "fields": {
+      "province": 10,
+      "name": "بجستان",
+      "slug": "bajestan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 162,
+    "fields": {
+      "province": 10,
+      "name": "بردسكن",
+      "slug": "bardaskan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 163,
+    "fields": {
+      "province": 10,
+      "name": "تايباد",
+      "slug": "taybad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 164,
+    "fields": {
+      "province": 10,
+      "name": "تربت جام",
+      "slug": "torbat-e-jam"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 165,
+    "fields": {
+      "province": 10,
+      "name": "تربت حيدريه",
+      "slug": "torbat"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 166,
+    "fields": {
+      "province": 10,
+      "name": "جغتاي",
+      "slug": "jaghatay"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 167,
+    "fields": {
+      "province": 10,
+      "name": "جوين",
+      "slug": "jovin"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 168,
+    "fields": {
+      "province": 10,
+      "name": "خليل آباد",
+      "slug": "khaliabad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 169,
+    "fields": {
+      "province": 10,
+      "name": "خواف",
+      "slug": "khaf"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 170,
+    "fields": {
+      "province": 10,
+      "name": "داورزن",
+      "slug": "davarzan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 171,
+    "fields": {
+      "province": 10,
+      "name": "درگز",
+      "slug": "dargaz"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 172,
+    "fields": {
+      "province": 10,
+      "name": "رشتخوار",
+      "slug": "roshtkhar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 173,
+    "fields": {
+      "province": 10,
+      "name": "زاوه",
+      "slug": "zavh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 174,
+    "fields": {
+      "province": 10,
+      "name": "سبزوار",
+      "slug": "sabzevar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 175,
+    "fields": {
+      "province": 10,
+      "name": "سرخس",
+      "slug": "fern"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 176,
+    "fields": {
+      "province": 10,
+      "name": "فريمان",
+      "slug": "fariman"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 177,
+    "fields": {
+      "province": 10,
+      "name": "قوچان",
+      "slug": "ghoochan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 178,
+    "fields": {
+      "province": 10,
+      "name": "كاشمر",
+      "slug": "kashmar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 179,
+    "fields": {
+      "province": 10,
+      "name": "كلات",
+      "slug": "kalat"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 180,
+    "fields": {
+      "province": 10,
+      "name": "مشهد",
+      "slug": "mashhad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 181,
+    "fields": {
+      "province": 10,
+      "name": "مه ولات",
+      "slug": "mahvelat"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 182,
+    "fields": {
+      "province": 10,
+      "name": "نيشابور",
+      "slug": "neyshabur"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 183,
+    "fields": {
+      "province": 10,
+      "name": "چناران",
+      "slug": "chenaran"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 184,
+    "fields": {
+      "province": 10,
+      "name": "گناباد",
+      "slug": "gonabad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 185,
+    "fields": {
+      "province": 11,
+      "name": "آران وبيدگل",
+      "slug": "aran-va-bidgol"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 186,
+    "fields": {
+      "province": 11,
+      "name": "اردستان",
+      "slug": "ardestān"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 187,
+    "fields": {
+      "province": 11,
+      "name": "اصفهان",
+      "slug": "esfahan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 188,
+    "fields": {
+      "province": 11,
+      "name": "برخوار",
+      "slug": "borkhar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 189,
+    "fields": {
+      "province": 11,
+      "name": "تيران وکرون",
+      "slug": "tiran-vkrvn"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 190,
+    "fields": {
+      "province": 11,
+      "name": "خميني شهر",
+      "slug": "khomeini-shahr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 191,
+    "fields": {
+      "province": 11,
+      "name": "خوانسار",
+      "slug": "khansar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 192,
+    "fields": {
+      "province": 11,
+      "name": "دهاقان",
+      "slug": "dehaghan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 193,
+    "fields": {
+      "province": 11,
+      "name": "سميرم",
+      "slug": "semirom"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 194,
+    "fields": {
+      "province": 11,
+      "name": "شاهين شهروميمه",
+      "slug": "shahin-shhrvmymh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 195,
+    "fields": {
+      "province": 11,
+      "name": "شهرضا",
+      "slug": "branch"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 196,
+    "fields": {
+      "province": 11,
+      "name": "فريدن",
+      "slug": "frieden"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 197,
+    "fields": {
+      "province": 11,
+      "name": "فريدونشهر",
+      "slug": "fereidunshahr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 198,
+    "fields": {
+      "province": 11,
+      "name": "فلاورجان",
+      "slug": "falavarjan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 199,
+    "fields": {
+      "province": 11,
+      "name": "لنجان",
+      "slug": "lenjan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 200,
+    "fields": {
+      "province": 11,
+      "name": "مبارکه",
+      "slug": "mobarakeh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 201,
+    "fields": {
+      "province": 11,
+      "name": "نجف آباد",
+      "slug": "najaf-abad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 202,
+    "fields": {
+      "province": 11,
+      "name": "نطنز",
+      "slug": "natanz"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 203,
+    "fields": {
+      "province": 11,
+      "name": "چادگان",
+      "slug": "chadegan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 204,
+    "fields": {
+      "province": 11,
+      "name": "کاشان",
+      "slug": "kashan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 205,
+    "fields": {
+      "province": 11,
+      "name": "گلپايگان",
+      "slug": "golpaygan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 206,
+    "fields": {
+      "province": 12,
+      "name": "ايرانشهر",
+      "slug": "iranshahr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 207,
+    "fields": {
+      "province": 12,
+      "name": "خاش",
+      "slug": "khash"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 208,
+    "fields": {
+      "province": 12,
+      "name": "دلگان",
+      "slug": "dlgan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 209,
+    "fields": {
+      "province": 12,
+      "name": "زابل",
+      "slug": "zabul"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 210,
+    "fields": {
+      "province": 12,
+      "name": "زاهدان",
+      "slug": "zahedan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 211,
+    "fields": {
+      "province": 12,
+      "name": "سراوان",
+      "slug": "saravan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 212,
+    "fields": {
+      "province": 12,
+      "name": "سرباز",
+      "slug": "soldier"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 213,
+    "fields": {
+      "province": 12,
+      "name": "فنوج",
+      "slug": "fenouj"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 214,
+    "fields": {
+      "province": 12,
+      "name": "مهرستان",
+      "slug": "your-spouse"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 215,
+    "fields": {
+      "province": 12,
+      "name": "نيك شهر",
+      "slug": "nikshahr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 216,
+    "fields": {
+      "province": 12,
+      "name": "چابهار",
+      "slug": "chabahar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 217,
+    "fields": {
+      "province": 13,
+      "name": "بانه",
+      "slug": "bane"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 218,
+    "fields": {
+      "province": 13,
+      "name": "بيجار",
+      "slug": "bijar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 219,
+    "fields": {
+      "province": 13,
+      "name": "دهگلان",
+      "slug": "dehgolan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 220,
+    "fields": {
+      "province": 13,
+      "name": "ديواندره",
+      "slug": "divandareh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 221,
+    "fields": {
+      "province": 13,
+      "name": "سروآباد",
+      "slug": "sarvabad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 222,
+    "fields": {
+      "province": 13,
+      "name": "سقز",
+      "slug": "turpentine"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 223,
+    "fields": {
+      "province": 13,
+      "name": "سنندج",
+      "slug": "sanandaj"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 224,
+    "fields": {
+      "province": 13,
+      "name": "قروه",
+      "slug": "qorveh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 225,
+    "fields": {
+      "province": 13,
+      "name": "كامياران",
+      "slug": "kamyaran"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 226,
+    "fields": {
+      "province": 13,
+      "name": "مريوان",
+      "slug": "marivan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 227,
+    "fields": {
+      "province": 14,
+      "name": "اسدآباد",
+      "slug": "asadabad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 228,
+    "fields": {
+      "province": 14,
+      "name": "بهار",
+      "slug": "spring"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 229,
+    "fields": {
+      "province": 14,
+      "name": "تويسركان",
+      "slug": "tuyserkan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 230,
+    "fields": {
+      "province": 14,
+      "name": "رزن",
+      "slug": "razan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 231,
+    "fields": {
+      "province": 14,
+      "name": "كبودرآهنگ",
+      "slug": "kaboudarahang"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 232,
+    "fields": {
+      "province": 14,
+      "name": "ملاير",
+      "slug": "malayer"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 233,
+    "fields": {
+      "province": 14,
+      "name": "نهاوند",
+      "slug": "skinheads"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 234,
+    "fields": {
+      "province": 14,
+      "name": "همدان",
+      "slug": "hamedan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 235,
+    "fields": {
+      "province": 15,
+      "name": "اردل",
+      "slug": "ardal"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 236,
+    "fields": {
+      "province": 15,
+      "name": "بروجن",
+      "slug": "borujen"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 237,
+    "fields": {
+      "province": 15,
+      "name": "سامان",
+      "slug": "order"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 238,
+    "fields": {
+      "province": 15,
+      "name": "شهركرد",
+      "slug": "kord"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 239,
+    "fields": {
+      "province": 15,
+      "name": "فارسان",
+      "slug": "farsan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 240,
+    "fields": {
+      "province": 15,
+      "name": "كوهرنگ",
+      "slug": "kouhrang"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 241,
+    "fields": {
+      "province": 15,
+      "name": "لردگان",
+      "slug": "lordegan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 242,
+    "fields": {
+      "province": 16,
+      "name": "ازنا",
+      "slug": "azna"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 243,
+    "fields": {
+      "province": 16,
+      "name": "اليگودرز",
+      "slug": "aligoudarz"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 244,
+    "fields": {
+      "province": 16,
+      "name": "بروجرد",
+      "slug": "borujerd"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 245,
+    "fields": {
+      "province": 16,
+      "name": "خرم آباد",
+      "slug": "khorramabad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 246,
+    "fields": {
+      "province": 16,
+      "name": "دلفان",
+      "slug": "delfan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 247,
+    "fields": {
+      "province": 16,
+      "name": "دوره",
+      "slug": "the-period"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 248,
+    "fields": {
+      "province": 16,
+      "name": "دورود",
+      "slug": "dorud"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 249,
+    "fields": {
+      "province": 16,
+      "name": "رومشکان",
+      "slug": "rvmshkan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 250,
+    "fields": {
+      "province": 16,
+      "name": "سلسله",
+      "slug": "series"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 251,
+    "fields": {
+      "province": 16,
+      "name": "پلدختر",
+      "slug": "poldokhtar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 252,
+    "fields": {
+      "province": 16,
+      "name": "کوهدشت",
+      "slug": "kuhdasht"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 253,
+    "fields": {
+      "province": 17,
+      "name": "آبدانان",
+      "slug": "abdanan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 254,
+    "fields": {
+      "province": 17,
+      "name": "ايلام",
+      "slug": "ilam"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 255,
+    "fields": {
+      "province": 17,
+      "name": "ايوان",
+      "slug": "ivan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 256,
+    "fields": {
+      "province": 17,
+      "name": "دره شهر",
+      "slug": "valley-city"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 257,
+    "fields": {
+      "province": 17,
+      "name": "دهلران",
+      "slug": "dehloran"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 258,
+    "fields": {
+      "province": 17,
+      "name": "سيروان",
+      "slug": "sirvan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 259,
+    "fields": {
+      "province": 17,
+      "name": "مهران",
+      "slug": "mehran"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 260,
+    "fields": {
+      "province": 18,
+      "name": "باشت",
+      "slug": "basht"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 261,
+    "fields": {
+      "province": 18,
+      "name": "بهمئي",
+      "slug": "bahmaie"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 262,
+    "fields": {
+      "province": 18,
+      "name": "بويراحمد",
+      "slug": "boyer"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 263,
+    "fields": {
+      "province": 18,
+      "name": "دنا",
+      "slug": "dena"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 264,
+    "fields": {
+      "province": 18,
+      "name": "لنده",
+      "slug": "landhi"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 265,
+    "fields": {
+      "province": 18,
+      "name": "گچساران",
+      "slug": "gachsaran"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 266,
+    "fields": {
+      "province": 19,
+      "name": "بوشهر",
+      "slug": "bushehr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 267,
+    "fields": {
+      "province": 19,
+      "name": "تنگستان",
+      "slug": "tangistan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 268,
+    "fields": {
+      "province": 19,
+      "name": "جم",
+      "slug": "jam"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 269,
+    "fields": {
+      "province": 19,
+      "name": "دشتستان",
+      "slug": "dashtestan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 270,
+    "fields": {
+      "province": 19,
+      "name": "دشتي",
+      "slug": "dashti"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 271,
+    "fields": {
+      "province": 19,
+      "name": "ديلم",
+      "slug": "daylam"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 272,
+    "fields": {
+      "province": 19,
+      "name": "كنگان",
+      "slug": "kangan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 273,
+    "fields": {
+      "province": 19,
+      "name": "گناوه",
+      "slug": "ganaveh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 274,
+    "fields": {
+      "province": 20,
+      "name": "ابهر",
+      "slug": "abhar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 275,
+    "fields": {
+      "province": 20,
+      "name": "ايجرود",
+      "slug": "ijroud"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 276,
+    "fields": {
+      "province": 20,
+      "name": "خدابنده",
+      "slug": "khodabande"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 277,
+    "fields": {
+      "province": 20,
+      "name": "خرمدره",
+      "slug": "khoramdeh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 278,
+    "fields": {
+      "province": 20,
+      "name": "زنجان",
+      "slug": "zanjan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 279,
+    "fields": {
+      "province": 20,
+      "name": "طارم",
+      "slug": "tarom"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 280,
+    "fields": {
+      "province": 20,
+      "name": "ماهنشان",
+      "slug": "mahneshan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 281,
+    "fields": {
+      "province": 21,
+      "name": "آرادان",
+      "slug": "aradan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 282,
+    "fields": {
+      "province": 21,
+      "name": "دامغان",
+      "slug": "damghan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 283,
+    "fields": {
+      "province": 21,
+      "name": "سرخه",
+      "slug": "sorkhe"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 284,
+    "fields": {
+      "province": 21,
+      "name": "سمنان",
+      "slug": "semnan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 285,
+    "fields": {
+      "province": 21,
+      "name": "شاهرود",
+      "slug": "anymore"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 286,
+    "fields": {
+      "province": 21,
+      "name": "مهدئ شهر",
+      "slug": "mehdi-city"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 287,
+    "fields": {
+      "province": 21,
+      "name": "گرمسار",
+      "slug": "garmsar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 288,
+    "fields": {
+      "province": 22,
+      "name": "ابركوه",
+      "slug": "abarkouh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 289,
+    "fields": {
+      "province": 22,
+      "name": "اردكان",
+      "slug": "ardakan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 290,
+    "fields": {
+      "province": 22,
+      "name": "بافق",
+      "slug": "bafg"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 291,
+    "fields": {
+      "province": 22,
+      "name": "بهاباد",
+      "slug": "bahabad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 292,
+    "fields": {
+      "province": 22,
+      "name": "تفت",
+      "slug": "taft"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 293,
+    "fields": {
+      "province": 22,
+      "name": "خاتم",
+      "slug": "khatam"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 294,
+    "fields": {
+      "province": 22,
+      "name": "مهريز",
+      "slug": "mehriz"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 295,
+    "fields": {
+      "province": 22,
+      "name": "ميبد",
+      "slug": "meibod"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 296,
+    "fields": {
+      "province": 23,
+      "name": "ابوموسي",
+      "slug": "abu-musa"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 297,
+    "fields": {
+      "province": 23,
+      "name": "بستك",
+      "slug": "block"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 298,
+    "fields": {
+      "province": 23,
+      "name": "بندرعباس",
+      "slug": "bandar-abbas"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 299,
+    "fields": {
+      "province": 23,
+      "name": "بندرلنگه",
+      "slug": "lengeh-seaport"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 300,
+    "fields": {
+      "province": 23,
+      "name": "جاسك",
+      "slug": "jask"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 301,
+    "fields": {
+      "province": 23,
+      "name": "حاجي اباد",
+      "slug": "hajiabadi"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 302,
+    "fields": {
+      "province": 23,
+      "name": "خمير",
+      "slug": "dough"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 303,
+    "fields": {
+      "province": 23,
+      "name": "قشم",
+      "slug": "qeshm"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 304,
+    "fields": {
+      "province": 23,
+      "name": "ميناب",
+      "slug": "minab"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 305,
+    "fields": {
+      "province": 23,
+      "name": "پارسيان",
+      "slug": "parsian"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 306,
+    "fields": {
+      "province": 24,
+      "name": "اسلامشهر",
+      "slug": "eslamshahr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 307,
+    "fields": {
+      "province": 24,
+      "name": "بهارستان",
+      "slug": "baharestan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 308,
+    "fields": {
+      "province": 24,
+      "name": "تهران",
+      "slug": "tehran"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 309,
+    "fields": {
+      "province": 24,
+      "name": "دماوند",
+      "slug": "damavand"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 310,
+    "fields": {
+      "province": 24,
+      "name": "رباطكريم",
+      "slug": "robat-karim"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 311,
+    "fields": {
+      "province": 24,
+      "name": "شميرانات",
+      "slug": "shemiranat"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 312,
+    "fields": {
+      "province": 24,
+      "name": "شهريار",
+      "slug": "sh."
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 313,
+    "fields": {
+      "province": 24,
+      "name": "فيروزكوه",
+      "slug": "firouzkouh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 314,
+    "fields": {
+      "province": 24,
+      "name": "ملارد",
+      "slug": "mallard"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 315,
+    "fields": {
+      "province": 24,
+      "name": "ورامين",
+      "slug": "varamin"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 316,
+    "fields": {
+      "province": 24,
+      "name": "پاكدشت",
+      "slug": "pakdasht"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 317,
+    "fields": {
+      "province": 24,
+      "name": "پرديس",
+      "slug": "college"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 318,
+    "fields": {
+      "province": 25,
+      "name": "اردبيل",
+      "slug": "ardabil"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 319,
+    "fields": {
+      "province": 25,
+      "name": "بيله سوار",
+      "slug": "bilesavar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 320,
+    "fields": {
+      "province": 25,
+      "name": "خلخال",
+      "slug": "anklet"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 321,
+    "fields": {
+      "province": 25,
+      "name": "كوثر",
+      "slug": "kosar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 322,
+    "fields": {
+      "province": 25,
+      "name": "مشگين شهر",
+      "slug": "meshkinshar"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 323,
+    "fields": {
+      "province": 25,
+      "name": "نمين",
+      "slug": "namin"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 324,
+    "fields": {
+      "province": 25,
+      "name": "نير",
+      "slug": "nir"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 325,
+    "fields": {
+      "province": 25,
+      "name": "پارس آباد",
+      "slug": "pars-abad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 326,
+    "fields": {
+      "province": 25,
+      "name": "گرمي",
+      "slug": "g"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 327,
+    "fields": {
+      "province": 26,
+      "name": "قم",
+      "slug": "qom"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 328,
+    "fields": {
+      "province": 27,
+      "name": "البرز",
+      "slug": "alborz"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 329,
+    "fields": {
+      "province": 27,
+      "name": "بوئين زهرا",
+      "slug": "buin-zahra"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 330,
+    "fields": {
+      "province": 27,
+      "name": "تاكستان",
+      "slug": "the-vineyard"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 331,
+    "fields": {
+      "province": 27,
+      "name": "قزوين",
+      "slug": "qazvin"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 332,
+    "fields": {
+      "province": 28,
+      "name": "آزادشهر",
+      "slug": "azadshahr"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 333,
+    "fields": {
+      "province": 28,
+      "name": "آق قلا",
+      "slug": "aqqala"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 334,
+    "fields": {
+      "province": 28,
+      "name": "بندرگز",
+      "slug": "gaz"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 335,
+    "fields": {
+      "province": 28,
+      "name": "راميان",
+      "slug": "ramian"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 336,
+    "fields": {
+      "province": 28,
+      "name": "علي آباد",
+      "slug": "ali-abad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 337,
+    "fields": {
+      "province": 28,
+      "name": "كلاله",
+      "slug": "stigma"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 338,
+    "fields": {
+      "province": 28,
+      "name": "مينودشت",
+      "slug": "minoodasht"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 339,
+    "fields": {
+      "province": 28,
+      "name": "گرگان",
+      "slug": "gorgan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 340,
+    "fields": {
+      "province": 28,
+      "name": "گنبدكاووس",
+      "slug": "gonbad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 341,
+    "fields": {
+      "province": 29,
+      "name": "اسفراين",
+      "slug": "esfaraien"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 342,
+    "fields": {
+      "province": 29,
+      "name": "بجنورد",
+      "slug": "bojnoord"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 343,
+    "fields": {
+      "province": 29,
+      "name": "جاجرم",
+      "slug": "jajarm"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 344,
+    "fields": {
+      "province": 29,
+      "name": "شيروان",
+      "slug": "shirvan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 345,
+    "fields": {
+      "province": 29,
+      "name": "فاروج",
+      "slug": "faruj"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 346,
+    "fields": {
+      "province": 29,
+      "name": "مانه وسملقان",
+      "slug": "manet-vsmlqan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 347,
+    "fields": {
+      "province": 29,
+      "name": "گرمه",
+      "slug": "it-is-hot"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 348,
+    "fields": {
+      "province": 30,
+      "name": "بيرجند",
+      "slug": "birjand"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 349,
+    "fields": {
+      "province": 30,
+      "name": "خوسف",
+      "slug": "khoosf"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 350,
+    "fields": {
+      "province": 30,
+      "name": "درميان",
+      "slug": "in-the-middle-of"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 351,
+    "fields": {
+      "province": 30,
+      "name": "زيرکوه",
+      "slug": "zirkouh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 352,
+    "fields": {
+      "province": 30,
+      "name": "سرايان",
+      "slug": "writers"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 353,
+    "fields": {
+      "province": 30,
+      "name": "سربيشه",
+      "slug": "sarbishe"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 354,
+    "fields": {
+      "province": 30,
+      "name": "طبس",
+      "slug": "peaks"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 355,
+    "fields": {
+      "province": 30,
+      "name": "فردوس",
+      "slug": "paradise"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 356,
+    "fields": {
+      "province": 30,
+      "name": "قائنات",
+      "slug": "ghaenat"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 357,
+    "fields": {
+      "province": 30,
+      "name": "نهبندان",
+      "slug": "nehbandan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 358,
+    "fields": {
+      "province": 31,
+      "name": "ساوجبلاغ",
+      "slug": "savojbolagh"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 359,
+    "fields": {
+      "province": 31,
+      "name": "طالقان",
+      "slug": "taleghan"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 360,
+    "fields": {
+      "province": 31,
+      "name": "فرديس",
+      "slug": "fardis"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 361,
+    "fields": {
+      "province": 31,
+      "name": "نظرآباد",
+      "slug": "nazarabad"
+    }
+  },
+  {
+    "model": "medical.city",
+    "pk": 362,
+    "fields": {
+      "province": 31,
+      "name": "کرج",
+      "slug": "karaj"
+    }
+  }
+]

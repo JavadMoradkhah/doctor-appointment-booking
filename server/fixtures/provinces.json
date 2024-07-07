@@ -1,0 +1,250 @@
+[
+  {
+    "model": "medical.province",
+    "pk": 1,
+    "fields": {
+      "name": "مرکزی",
+      "slug": "markazi"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 2,
+    "fields": {
+      "name": "گيلان",
+      "slug": "gilan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 3,
+    "fields": {
+      "name": "مازندران",
+      "slug": "mazandaran"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 4,
+    "fields": {
+      "name": "آذربايجان شرقي",
+      "slug": "east-azarbaijan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 5,
+    "fields": {
+      "name": "آذربايجان غربي",
+      "slug": "western-azerbaijan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 6,
+    "fields": {
+      "name": "کرمانشاه",
+      "slug": "kermanshah"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 7,
+    "fields": {
+      "name": "خوزستان",
+      "slug": "khuzestan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 8,
+    "fields": {
+      "name": "فارس",
+      "slug": "fars"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 9,
+    "fields": {
+      "name": "كرمان",
+      "slug": "kerman"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 10,
+    "fields": {
+      "name": "خراسان رضوئ",
+      "slug": "khorasan-razavi"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 11,
+    "fields": {
+      "name": "اصفهان",
+      "slug": "esfahan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 12,
+    "fields": {
+      "name": "سيستان وبلوچستان",
+      "slug": "sistan-and-baluchistan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 13,
+    "fields": {
+      "name": "كردستان",
+      "slug": "kurdistan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 14,
+    "fields": {
+      "name": "همدان",
+      "slug": "hamedan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 15,
+    "fields": {
+      "name": "چهارمحال وبختياری",
+      "slug": "chaharmahal-and-bakhtiari-"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 16,
+    "fields": {
+      "name": "لرستان",
+      "slug": "lorestan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 17,
+    "fields": {
+      "name": "ايلام",
+      "slug": "ilam"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 18,
+    "fields": {
+      "name": "كهگيلويه وبويراحمد",
+      "slug": "kohgiloyeh-boyerahmad"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 19,
+    "fields": {
+      "name": "بوشهر",
+      "slug": "bushehr"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 20,
+    "fields": {
+      "name": "زنجان",
+      "slug": "zanjan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 21,
+    "fields": {
+      "name": "سمنان",
+      "slug": "semnan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 22,
+    "fields": {
+      "name": "یزد",
+      "slug": "yazd"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 23,
+    "fields": {
+      "name": "هرمزگان",
+      "slug": "hormozgan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 24,
+    "fields": {
+      "name": "تهران",
+      "slug": "tehran"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 25,
+    "fields": {
+      "name": "اردبيل",
+      "slug": "ardabil"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 26,
+    "fields": {
+      "name": "قم",
+      "slug": "qom"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 27,
+    "fields": {
+      "name": "قزوين",
+      "slug": "qazvin"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 28,
+    "fields": {
+      "name": "گلستان",
+      "slug": "golestan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 29,
+    "fields": {
+      "name": "خراسان شمالي",
+      "slug": "north-khorasan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 30,
+    "fields": {
+      "name": "خراسان جنوبي",
+      "slug": "south-khorasan"
+    }
+  },
+  {
+    "model": "medical.province",
+    "pk": 31,
+    "fields": {
+      "name": "البرز",
+      "slug": "alborz"
+    }
+  }
+]

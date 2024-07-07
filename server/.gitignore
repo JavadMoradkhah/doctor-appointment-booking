@@ -264,3 +264,7 @@ pyrightconfig.json
 
 # Docker
 secrets/
+
+*.secret.json
+*-secret.json
+*_secret.json
