@@ -53,7 +53,12 @@ class UserInsuranceViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         return UserInsurance.objects.filter(
             user_id=self.request.user.id
-        ).all()
+        ).select_related('insurance').all()
+
+    def get_serializer_class(self):
+        if self.request.method not in SAFE_METHODS:
+            return serializers.UserInsuranceCreateUpdateSerializer
+        return serializers.UserInsuranceListRetrieveSerializer
 
     def get_serializer_context(self):
         return {

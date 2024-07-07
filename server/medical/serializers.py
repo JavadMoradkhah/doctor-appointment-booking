@@ -49,7 +49,15 @@ class InsuranceSerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 
-class UserInsuranceSerializer(serializers.ModelSerializer):
+class UserInsuranceListRetrieveSerializer(serializers.ModelSerializer):
+    insurance = serializers.CharField(source='insurance.name')
+
+    class Meta:
+        model = UserInsurance
+        fields = ['id', 'insurance', 'insurance_code']
+
+
+class UserInsuranceCreateUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserInsurance
         fields = ['id', 'insurance', 'insurance_code']
