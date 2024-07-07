@@ -1,7 +1,7 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.exceptions import APIException
-from rest_framework.permissions import SAFE_METHODS, IsAuthenticated
+from rest_framework.permissions import SAFE_METHODS, IsAuthenticated, IsAdminUser
 from authentication.permissions import IsAdminOrReadOnly, IsPatient
 from .models import Province, City, Insurance, UserInsurance
 from . import serializers
@@ -15,7 +15,7 @@ class ProvinceViewSet(viewsets.ModelViewSet):
 
 class CityViewSet(viewsets.ModelViewSet):
     queryset = City.objects.all()
-    permission_classes = [IsAdminOrReadOnly]
+    permission_classes = [IsAuthenticated, IsAdminUser]
 
     def get_serializer_class(self):
         if self.request.method not in SAFE_METHODS:
