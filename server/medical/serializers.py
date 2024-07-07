@@ -1,6 +1,18 @@
 from rest_framework import serializers
-from . import validators
 from .models import Province, City, Insurance, UserInsurance
+from . import validators
+
+
+class ProvinceListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Province
+        fields = ['id', 'name', 'slug']
+
+
+class ProvinceRetrieveSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Province
+        fields = ['id', 'name', 'slug', 'image']
 
 
 class ProvinceSerializer(serializers.ModelSerializer):
