@@ -8,9 +8,15 @@ router = DefaultRouter()
 router.register(r'provinces', views.ProvinceViewSet, basename='province')
 router.register(r'city', views.CityViewSet, basename='city')
 
+router.register(r'insurance', views.InsuranceViewSet, basename='insurance')
+router.register(r'user-insurance', views.UserInsuranceViewSet,
+                basename='user-insurance')
 
-province_router = routers.NestedSimpleRouter(router, r'provinces', lookup='province')
-province_router.register(r'cities', views.ProvinceCitiesViewSet, basename='cities')
+
+province_router = routers.NestedSimpleRouter(
+    router, r'provinces', lookup='province')
+province_router.register(
+    r'cities', views.ProvinceCitiesViewSet, basename='cities')
 
 
 urlpatterns += router.urls

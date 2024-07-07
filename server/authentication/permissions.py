@@ -6,6 +6,10 @@ class IsDoctor(BasePermission):
         return request.user.is_doctor
 
 
+class IsPatient(BasePermission):
+    def has_permission(self, request, view):
+        return request.user.is_patient
+
 class IsAdminOrReadOnly(BasePermission):
     def has_permission(self, request, view):
         if request.method in SAFE_METHODS:
