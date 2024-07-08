@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .forms import UserChangeForm, UserCreationForm
-from .models import User
+from .models import User, Profile
 
 
 @admin.register(User)
@@ -26,3 +26,9 @@ class UserAdmin(BaseUserAdmin):
     search_fields = ["phone"]
     ordering = ["phone"]
     filter_horizontal = []
+
+
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('first_name',)
