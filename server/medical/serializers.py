@@ -1,6 +1,6 @@
 from rest_framework import serializers, status
 from rest_framework.serializers import ValidationError
-from .models import Province, City, Insurance, UserInsurance
+from .models import Province, City, Insurance, UserInsurance, Facility
 from . import validators
 
 
@@ -76,3 +76,9 @@ class UserInsuranceCreateUpdateSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user_id = self.context['user_id']
         return UserInsurance.objects.create(**validated_data, user_id=user_id)
+
+
+class FacilitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Facility
+        fields = ['id', 'name', 'slug']
