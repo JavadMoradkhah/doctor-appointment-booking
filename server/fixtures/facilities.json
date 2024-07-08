@@ -70,5 +70,13 @@
       "name": "مطب",
       "slug": "office"
     }
+  },
+  {
+    "model": "medical.facility",
+    "pk": 10,
+    "fields": {
+      "name": "دندانپزشکی",
+      "slug": "dental"
+    }
   }
 ]
