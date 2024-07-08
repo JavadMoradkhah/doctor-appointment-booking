@@ -7,11 +7,13 @@ USER_GENDER_CHOICES = (
 )
 
 USER_ROLE_ADMIN = 'admin'
+USER_ROLE_MANAGER = 'manager'
 USER_ROLE_DOCTOR = 'doctor'
 USER_ROLE_PATIENT = 'patient'
 
 USER_ROLE_CHOICES = (
-    (USER_ROLE_ADMIN, 'مدیر'),
+    (USER_ROLE_ADMIN, 'ادمین'),
+    (USER_ROLE_MANAGER, 'مدیر'),
     (USER_ROLE_DOCTOR, 'دکتر'),
     (USER_ROLE_PATIENT, 'بیمار'),
 )
