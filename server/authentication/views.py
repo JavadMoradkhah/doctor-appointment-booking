@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework.exceptions import Throttled
 from rest_framework_simplejwt.settings import api_settings as jwt_settings
 from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
+from .permissions import IsNotAuthenticated
 from .serializers import PhoneSerializer
 from .tasks import send_otp
 
@@ -17,6 +18,7 @@ User = get_user_model()
 class SendOtpView(GenericAPIView):
     queryset = User.objects.all()
     serializer_class = PhoneSerializer
+    permission_classes = [IsNotAuthenticated]
 
     def post(self, request: Request):
         serializer = self.get_serializer(data=request.data)
