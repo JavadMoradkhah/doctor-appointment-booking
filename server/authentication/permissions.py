@@ -1,4 +1,9 @@
-from rest_framework.permissions import BasePermission, SAFE_METHODS
+from rest_framework.permissions import BasePermission, IsAuthenticated, SAFE_METHODS
+
+
+class IsNotAuthenticated(IsAuthenticated):
+    def has_permission(self, request, view):
+        return not super().has_permission(request, view)
 
 
 class IsManager(BasePermission):
