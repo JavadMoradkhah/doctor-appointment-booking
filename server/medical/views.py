@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.permissions import SAFE_METHODS, IsAuthenticated, IsAdminUser
 from authentication.permissions import IsAdminOrReadOnly, IsPatient
-from .models import Province, City, Insurance, UserInsurance
+from .models import Province, City, Insurance, UserInsurance, Facility
 from . import serializers
 
 
@@ -62,3 +62,9 @@ class UserInsuranceViewSet(viewsets.ModelViewSet):
         return {
             'user_id': self.request.user.id
         }
+
+
+class FacilityViewSet(viewsets.ModelViewSet):
+    queryset = Facility.objects.all()
+    serializer_class = serializers.FacilitySerializer
+    permission_classes = [IsAdminOrReadOnly]

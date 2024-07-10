@@ -22,19 +22,19 @@ class SendOtpView(GenericAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        phone = serializer.validated_data['phone']
+        phone = serializer.validated_data["phone"]
 
-        cache_key = f'otp:{phone}'
+        cache_key = f"otp:{phone}"
 
         otp_in_cache = settings.REDIS.get(cache_key)
 
         if otp_in_cache:
-            raise Throttled(detail='کد ارسال شده هنوز منقضی نشده است')
+            raise Throttled(detail="کد ارسال شده هنوز منقضی نشده است")
 
         otp_code = str(randint(111111, 999999))
 
         if settings.DEBUG:
-            print('OTP Code:', otp_code)
+            print("OTP Code:", otp_code)
         else:
             send_otp.delay(phone, otp_code)
 
@@ -44,23 +44,23 @@ class SendOtpView(GenericAPIView):
 
 
 class CookieTokenObtainPairView(TokenObtainPairView):
+    def get_serializer_context(self):
+        return {"url_target": self.kwargs["url_target"]}
+
     def post(self, request: Request, *args, **kwargs) -> Response:
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        access = serializer.validated_data['access']
-        refresh = serializer.validated_data['refresh']
+        access = serializer.validated_data["access"]
+        refresh = serializer.validated_data["refresh"]
 
-        response = Response(
-            {'access': access},
-            status=status.HTTP_200_OK
-        )
+        response = Response({"access": access}, status=status.HTTP_200_OK)
 
         response.set_cookie(
             key=settings.JWT_REFRESH_TOKEN_COOKIE,
             value=refresh,
             max_age=jwt_settings.REFRESH_TOKEN_LIFETIME.total_seconds(),
-            httponly=True
+            httponly=True,
         )
 
         return response
@@ -71,18 +71,17 @@ class CookieTokenRefreshView(TokenRefreshView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        refresh = serializer.validated_data['refresh']
+        refresh = serializer.validated_data["refresh"]
 
         response = Response(
-            {'access': serializer.validated_data['access']},
-            status=status.HTTP_200_OK
+            {"access": serializer.validated_data["access"]}, status=status.HTTP_200_OK
         )
 
         response.set_cookie(
             key=settings.JWT_REFRESH_TOKEN_COOKIE,
             value=refresh,
             max_age=jwt_settings.REFRESH_TOKEN_LIFETIME.total_seconds(),
-            httponly=True
+            httponly=True,
         )
 
         return response

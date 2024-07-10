@@ -1,0 +1,82 @@
+[
+  {
+    "model": "medical.facility",
+    "pk": 1,
+    "fields": {
+      "name": "آزمایشگاه و تحقیقات پزشکی",
+      "slug": "medical-laboratory-and-research"
+    }
+  },
+  {
+    "model": "medical.facility",
+    "pk": 2,
+    "fields": {
+      "name": "بیمارستان",
+      "slug": "hospital"
+    }
+  },
+  {
+    "model": "medical.facility",
+    "pk": 3,
+    "fields": {
+      "name": "درمانگاه (کلینیک)",
+      "slug": "clinic"
+    }
+  },
+  {
+    "model": "medical.facility",
+    "pk": 4,
+    "fields": {
+      "name": "مرکز بهداشت و درمان",
+      "slug": "healthcare-center"
+    }
+  },
+  {
+    "model": "medical.facility",
+    "pk": 5,
+    "fields": {
+      "name": "مرکز تصویربرداری و رادیولوژی",
+      "slug": "imaging-and-radiology-center"
+    }
+  },
+  {
+    "model": "medical.facility",
+    "pk": 6,
+    "fields": {
+      "name": "مرکز توانبخشی",
+      "slug": "rehabilitation-center"
+    }
+  },
+  {
+    "model": "medical.facility",
+    "pk": 7,
+    "fields": {
+      "name": "مرکز دیالیز",
+      "slug": "dialysis-center"
+    }
+  },
+  {
+    "model": "medical.facility",
+    "pk": 8,
+    "fields": {
+      "name": "مرکز فیزیوتراپی",
+      "slug": "physiotherapy-center"
+    }
+  },
+  {
+    "model": "medical.facility",
+    "pk": 9,
+    "fields": {
+      "name": "مطب",
+      "slug": "office"
+    }
+  },
+  {
+    "model": "medical.facility",
+    "pk": 10,
+    "fields": {
+      "name": "دندانپزشکی",
+      "slug": "dental"
+    }
+  }
+]

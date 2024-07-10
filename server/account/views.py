@@ -1,83 +1,97 @@
-from . import serializers
 from django.shortcuts import get_object_or_404
+from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.decorators import action
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from django.contrib.auth import get_user_model
+from rest_framework.exceptions import PermissionDenied
+from rest_framework.permissions import SAFE_METHODS, IsAuthenticated, IsAdminUser
+from authentication.permissions import IsUserOwner
 from account.models import Profile
+from . import serializers
 
 User = get_user_model()
 
 
 class UserViewSet(ModelViewSet):
     def get_permissions(self):
-        if self.action in ['me', 'create_profile', 'update_profile']:
-            return [IsAuthenticated()]
+        if self.action == "profile":
+            return [IsAuthenticated(), IsUserOwner()]
         return [IsAuthenticated(), IsAdminUser()]
 
     def get_queryset(self):
-        queryset = User.objects.all()
+        is_safe_method = self.request.method in SAFE_METHODS
 
-        if self.action in ['list', 'retrieve']:
-            return queryset.select_related('profile')
+        if self.action == "profile" and is_safe_method:
+            return Profile.objects.select_related("user").all()
 
-        return queryset
+        if self.action == "profile" and not is_safe_method:
+            return Profile.objects.all()
+
+        if not is_safe_method:
+            return User.objects.all()
+
+        return User.objects.select_related("profile").all()
 
     def get_serializer_class(self):
-        if self.action == 'retrieve':
-            return serializers.UserRetrieveSerializer
+        is_safe_method = self.request.method in SAFE_METHODS
 
-        if self.action == 'me':
+        if self.action == "profile" and is_safe_method:
             return serializers.ProfileSerializer
 
-        if self.action in ['create_profile', 'update_profile']:
+        if self.action == "profile" and not is_safe_method:
             return serializers.ProfileCreateUpdateSerializer
 
-        if self.action == 'create':
+        if self.action == "retrieve":
+            return serializers.UserRetrieveSerializer
+
+        if self.action == "create":
             return serializers.UserCreateSerializer
 
-        if self.action == 'update':
+        if self.action == "update":
             return serializers.UserUpdateSerializer
 
         return serializers.UserListSerializer
 
-    @action(detail=True, methods=['PATCH'])
+    def destroy(self, request, *args, **kwargs):
+        if request.user.id == int(kwargs["pk"]):
+            raise PermissionDenied("شما امکان حذف حساب کاربری خود را ندارید")
+
+        return super().destroy(request, *args, **kwargs)
+
+    @action(detail=True, methods=["PATCH"])
     def activate(self, request: Request, pk):
         user = get_object_or_404(User, pk=pk)
         user.is_active = True
         user.save()
         return Response(status=status.HTTP_200_OK)
 
-    @action(detail=True, methods=['PATCH'])
+    @action(detail=True, methods=["PATCH"])
     def deactivate(self, request: Request, pk):
         user = get_object_or_404(User, pk=pk)
         user.is_active = False
         user.save()
         return Response(status=status.HTTP_200_OK)
 
-    @action(detail=False, methods=['GET'])
-    def me(self, request: Request):
-        user = get_object_or_404(self.get_queryset(), pk=request.user.id)
+    @action(detail=True, methods=["GET", "POST", "PUT", "PATCH"])
+    def profile(self, request: Request, pk):
+        if request.method == "POST":
+            serializer = self.get_serializer(data=request.data)
+            serializer.is_valid(raise_exception=True)
+            serializer.save(user_id=pk)
+            return Response(serializer.data)
+
+        if request.method in ["PUT", "PATCH"]:
+            partial = request.method == "PATCH"
+            profile = get_object_or_404(Profile, user_id=pk)
+            serializer = self.get_serializer(
+                profile, data=request.data, partial=partial
+            )
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response(serializer.data)
+
+        user = get_object_or_404(Profile, pk=pk)
         serializer = self.get_serializer(user)
-        return Response(serializer.data)
-
-    @action(detail=False, methods=['POST'])
-    def create_profile(self, request: Request):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save(user_id=request.user.id)
-        return Response(serializer.data)
-
-    @action(detail=False, methods=['PUT', 'PATCH'])
-    def update_profile(self, request: Request, *args, **kwargs):
-        partial = request.method == 'PATCH'
-        profile = get_object_or_404(Profile, user_id=request.user.id)
-        serializer = self.get_serializer(
-            profile, data=request.data, partial=partial
-        )
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
         return Response(serializer.data)
