@@ -11,6 +11,7 @@ from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
 from .permissions import IsNotAuthenticated
 from .serializers import PhoneSerializer
 from .tasks import send_otp
+from .enums import UrlTargetRole
 
 User = get_user_model()
 
@@ -47,7 +48,9 @@ class SendOtpView(GenericAPIView):
 
 class CookieTokenObtainPairView(TokenObtainPairView):
     def get_serializer_context(self):
-        return {"url_target": self.kwargs["url_target"]}
+        return {
+            "url_target": self.kwargs.get("url_target", UrlTargetRole.PATIENT.value)
+        }
 
     def post(self, request: Request, *args, **kwargs) -> Response:
         serializer = self.get_serializer(data=request.data)
