@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 
 
 class TelephoneValidator(RegexValidator):
-    regex = r"^([0-9]{11})$"
+    regex = r"^0([0-9]{10})$"
     message = "یک شماره تلفن معتبر وارد کنید"
 
 
