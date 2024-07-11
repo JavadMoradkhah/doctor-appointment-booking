@@ -25,7 +25,7 @@ from .models import (
     MedicalCenterAddress,
     MedicalCenterTelephone,
 )
-from .permissions import IsUserOwnsMedicalCenter
+from .permissions import IsManagerMedicalCenterOwner
 from . import serializers
 
 
@@ -101,7 +101,8 @@ class MedicalCenterViewSet(viewsets.ModelViewSet):
             return queryset
 
         if self.action == "retrieve":
-            queryset = queryset.prefetch_related("gallery", "telephones", "address")
+            queryset = queryset.select_related("address").all()
+            queryset = queryset.prefetch_related("telephones", "gallery").all()
 
         if self.is_admin_user():
             queryset = queryset.select_related("manager__profile__user", "status")
@@ -115,7 +116,7 @@ class MedicalCenterViewSet(viewsets.ModelViewSet):
         if self.request.method in SAFE_METHODS:
             return [AllowAny()]
 
-        return [IsAuthenticated(), IsManager(), IsUserOwnsMedicalCenter()]
+        return [IsAuthenticated(), IsManager(), IsManagerMedicalCenterOwner()]
 
     def get_serializer_class(self, *args, **kwargs):
         if self.action == "status":
@@ -159,7 +160,7 @@ class MedicalCenterGallery(
     mixins.CreateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet
 ):
     queryset = MedicalCenterGallery.objects.all()
-    permission_classes = [IsAuthenticated, IsManager, IsManager]
+    permission_classes = [IsAuthenticated, IsManager, IsManagerMedicalCenterOwner]
     serializer_class = serializers.MedicalCenterGallerySerializer
 
     def get_serializer_context(self):
@@ -173,7 +174,7 @@ class MedicalCenterTelephoneViewSet(
     mixins.DestroyModelMixin,
     viewsets.GenericViewSet,
 ):
-    permission_classes = [IsAuthenticated, IsManager]
+    permission_classes = [IsAuthenticated, IsManager, IsManagerMedicalCenterOwner]
     serializer_class = serializers.MedicalCenterTelephoneSerializer
 
     def get_queryset(self):
@@ -193,7 +194,7 @@ class MedicalCenterAddressViewSet(
     viewsets.GenericViewSet,
 ):
     serializer_class = serializers.MedicalCenterAddressSerializer
-    permission_classes = [IsAuthenticated, IsManager]
+    permission_classes = [IsAuthenticated, IsManager, IsManagerMedicalCenterOwner]
 
     def get_queryset(self):
         return MedicalCenterAddress.objects.filter(
