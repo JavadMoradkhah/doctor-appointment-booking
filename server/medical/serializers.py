@@ -12,6 +12,7 @@ from .models import (
     MedicalCenter,
     MedicalCenterStatus,
     MedicalCenterGallery,
+    MedicalCenterAddress,
     MedicalCenterTelephone,
 )
 from . import validators, choices
@@ -197,11 +198,31 @@ class MedicalCenterTelephoneSerializer(serializers.ModelSerializer):
         return super().create(validated_data)
 
 
+class MedicalCenterAddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedicalCenterAddress
+        fields = ["id", "area", "address"]
+
+    @transaction.atomic()
+    def save(self, **kwargs):
+        medical_center_id = self.context["medical_center_id"]
+        self.validated_data["medical_center_id"] = medical_center_id
+
+        address = super().save(**kwargs)
+
+        MedicalCenterStatus.objects.filter(medical_center_id=medical_center_id).update(
+            approval_status=choices.MEDICAL_CENTER_STATUS_PENDING
+        )
+
+        return address
+
+
 class MedicalCenterRetrieveSerializer(serializers.ModelSerializer):
     facility = serializers.CharField(source="facility.name")
     city = serializers.CharField(source="city.name")
     gallery = MedicalCenterGallerySerializer(many=True)
     telephones = MedicalCenterTelephoneSerializer(many=True)
+    address = MedicalCenterAddressSerializer()
 
     class Meta:
         model = MedicalCenter
@@ -215,6 +236,7 @@ class AdminMedicalCenterRetrieveSerializer(serializers.ModelSerializer):
     status = MedicalCenterStatusSerializer()
     gallery = MedicalCenterGallerySerializer(many=True)
     telephones = MedicalCenterTelephoneSerializer(many=True)
+    address = MedicalCenterAddressSerializer()
 
     class Meta:
         model = MedicalCenter
