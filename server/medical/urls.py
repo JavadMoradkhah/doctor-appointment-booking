@@ -37,6 +37,12 @@ medical_center_router.register(
     basename="medical-center-telephones",
 )
 
+medical_center_router.register(
+    r"address",
+    views.MedicalCenterAddressViewSet,
+    basename="medical-center-address",
+)
+
 urlpatterns += router.urls
 urlpatterns += province_router.urls
 urlpatterns += medical_center_router.urls

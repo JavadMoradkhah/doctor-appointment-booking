@@ -22,6 +22,7 @@ from .models import (
     MedicalCenter,
     MedicalCenterStatus,
     MedicalCenterGallery,
+    MedicalCenterAddress,
     MedicalCenterTelephone,
 )
 from .permissions import IsUserOwnsMedicalCenter
@@ -100,7 +101,7 @@ class MedicalCenterViewSet(viewsets.ModelViewSet):
             return queryset
 
         if self.action == "retrieve":
-            queryset = queryset.prefetch_related("gallery", "telephones")
+            queryset = queryset.prefetch_related("gallery", "telephones", "address")
 
         if self.is_admin_user():
             queryset = queryset.select_related("manager__profile__user", "status")
@@ -177,6 +178,25 @@ class MedicalCenterTelephoneViewSet(
 
     def get_queryset(self):
         return MedicalCenterTelephone.objects.filter(
+            medical_center_id=self.kwargs["medical_center_pk"]
+        ).all()
+
+    def get_serializer_context(self):
+        return {"medical_center_id": self.kwargs["medical_center_pk"]}
+
+
+class MedicalCenterAddressViewSet(
+    mixins.RetrieveModelMixin,
+    mixins.CreateModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    viewsets.GenericViewSet,
+):
+    serializer_class = serializers.MedicalCenterAddressSerializer
+    permission_classes = [IsAuthenticated, IsManager]
+
+    def get_queryset(self):
+        return MedicalCenterAddress.objects.filter(
             medical_center_id=self.kwargs["medical_center_pk"]
         ).all()
 
