@@ -11,6 +11,7 @@ from .models import (
     Facility,
     MedicalCenter,
     MedicalCenterStatus,
+    MedicalCenterGallery,
 )
 from . import validators, choices
 
@@ -132,9 +133,42 @@ class AdminMedicalCenterListSerializer(serializers.ModelSerializer):
         exclude = ["introduction", "manager"]
 
 
+class MedicalCenterGallerySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedicalCenterGallery
+        fields = ["id", "photo", "caption"]
+        extra_kwargs = {"photo": {"validators": [validators.validate_image]}}
+
+    def validate(self, attrs):
+        medical_center_id = self.context["medical_center_id"]
+
+        gallery_count = MedicalCenterGallery.objects.filter(
+            medical_center_id=medical_center_id
+        ).count()
+
+        if gallery_count >= 6:
+            raise ValidationError("حداکثر ۶ تصویر برای گالری مراکز درمانی مجاز می باشد")
+
+        return super().validate(attrs)
+
+    @transaction.atomic()
+    def create(self, validated_data):
+        medical_center_id = self.context["medical_center_id"]
+        validated_data["medical_center_id"] = medical_center_id
+
+        gallery = super().create(validated_data)
+
+        MedicalCenterStatus.objects.filter(medical_center_id=medical_center_id).update(
+            approval_status=choices.MEDICAL_CENTER_STATUS_PENDING
+        )
+
+        return gallery
+
+
 class MedicalCenterRetrieveSerializer(serializers.ModelSerializer):
     facility = serializers.CharField(source="facility.name")
     city = serializers.CharField(source="city.name")
+    gallery = MedicalCenterGallerySerializer(many=True)
 
     class Meta:
         model = MedicalCenter
@@ -146,6 +180,7 @@ class AdminMedicalCenterRetrieveSerializer(serializers.ModelSerializer):
     facility = FacilitySerializer()
     city = MedicalCenterCitySerializer()
     status = MedicalCenterStatusSerializer()
+    gallery = MedicalCenterGallerySerializer(many=True)
 
     class Meta:
         model = MedicalCenter
