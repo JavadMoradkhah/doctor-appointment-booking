@@ -211,6 +211,3 @@ class MedicalCenterStatusUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = MedicalCenterStatus
         fields = ["approval_status", "description"]
-
-    def update(self, instance, validated_data):
-        return super().update(instance, validated_data)
