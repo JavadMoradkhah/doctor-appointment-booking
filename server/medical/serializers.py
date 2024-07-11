@@ -12,6 +12,7 @@ from .models import (
     MedicalCenter,
     MedicalCenterStatus,
     MedicalCenterGallery,
+    MedicalCenterTelephone,
 )
 from . import validators, choices
 
@@ -165,10 +166,42 @@ class MedicalCenterGallerySerializer(serializers.ModelSerializer):
         return gallery
 
 
+class MedicalCenterTelephoneSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedicalCenterTelephone
+        fields = ["id", "telephone", "description"]
+        extra_kwargs = {"telephone": {"validators": [validators.TelephoneValidator()]}}
+
+    def validate(self, attrs):
+        telephone = attrs["telephone"]
+        medical_center_id = self.context["medical_center_id"]
+
+        gallery_count = MedicalCenterTelephone.objects.filter(
+            medical_center_id=medical_center_id
+        ).count()
+
+        if gallery_count >= 3:
+            raise ValidationError("حداکثر ۳ شماره تلفن برای مراکز درمانی مجاز می باشد")
+
+        telephone_exists = MedicalCenterTelephone.objects.filter(
+            medical_center_id=medical_center_id, telephone=telephone
+        ).exists()
+
+        if telephone_exists:
+            raise ValidationError("این شماره تلفن قبلا اضافه شده است")
+
+        return super().validate(attrs)
+
+    def create(self, validated_data):
+        validated_data["medical_center_id"] = self.context["medical_center_id"]
+        return super().create(validated_data)
+
+
 class MedicalCenterRetrieveSerializer(serializers.ModelSerializer):
     facility = serializers.CharField(source="facility.name")
     city = serializers.CharField(source="city.name")
     gallery = MedicalCenterGallerySerializer(many=True)
+    telephones = MedicalCenterTelephoneSerializer(many=True)
 
     class Meta:
         model = MedicalCenter
@@ -181,6 +214,7 @@ class AdminMedicalCenterRetrieveSerializer(serializers.ModelSerializer):
     city = MedicalCenterCitySerializer()
     status = MedicalCenterStatusSerializer()
     gallery = MedicalCenterGallerySerializer(many=True)
+    telephones = MedicalCenterTelephoneSerializer(many=True)
 
     class Meta:
         model = MedicalCenter
