@@ -16,6 +16,10 @@ router.register(r"my-insurances", views.UserInsuranceViewSet, basename="my-insur
 
 router.register(r"facilities", views.FacilityViewSet, basename="facilities")
 
+router.register(
+    r"medical-centers", views.MedicalCenterViewSet, basename="medical-centers"
+)
+
 province_router = routers.NestedSimpleRouter(router, r"provinces", lookup="province")
 
 province_router.register(r"cities", views.ProvinceCitiesViewSet, basename="cities")
