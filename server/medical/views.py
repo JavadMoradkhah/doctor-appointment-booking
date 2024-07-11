@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import viewsets
+from rest_framework import viewsets, mixins
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.permissions import (
@@ -21,6 +21,7 @@ from .models import (
     Facility,
     MedicalCenter,
     MedicalCenterStatus,
+    MedicalCenterGallery,
 )
 from .permissions import IsUserOwnsMedicalCenter
 from . import serializers
@@ -97,6 +98,9 @@ class MedicalCenterViewSet(viewsets.ModelViewSet):
         if self.request.method not in SAFE_METHODS:
             return queryset
 
+        if self.action == "retrieve":
+            queryset = queryset.prefetch_related("gallery")
+
         if self.is_admin_user():
             queryset = queryset.select_related("manager__profile__user", "status")
 
@@ -147,3 +151,14 @@ class MedicalCenterViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.validated_data)
+
+
+class MedicalCenterGallery(
+    mixins.CreateModelMixin, mixins.DestroyModelMixin, viewsets.GenericViewSet
+):
+    queryset = MedicalCenterGallery.objects.all()
+    permission_classes = [IsAuthenticated, IsManager, IsManager]
+    serializer_class = serializers.MedicalCenterGallerySerializer
+
+    def get_serializer_context(self):
+        return {"medical_center_id": self.kwargs["medical_center_pk"]}

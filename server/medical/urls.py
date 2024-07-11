@@ -20,10 +20,17 @@ router.register(
     r"medical-centers", views.MedicalCenterViewSet, basename="medical-centers"
 )
 
+# Provinces Router
 province_router = routers.NestedSimpleRouter(router, r"provinces", lookup="province")
-
 province_router.register(r"cities", views.ProvinceCitiesViewSet, basename="cities")
 
-urlpatterns += router.urls
+medical_center_router = routers.NestedSimpleRouter(
+    router, r"medical-centers", lookup="medical_center"
+)
+medical_center_router.register(
+    r"gallery", views.MedicalCenterGallery, basename="medical-center-gallery"
+)
 
+urlpatterns += router.urls
 urlpatterns += province_router.urls
+urlpatterns += medical_center_router.urls
