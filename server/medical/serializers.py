@@ -236,7 +236,7 @@ class MedicalCenterCreateUpdateSerializer(serializers.ModelSerializer):
         medical_center = super().update(instance, validated_data)
 
         MedicalCenterStatus.objects.filter(medical_center_id=medical_center.id).update(
-            status=choices.MEDICAL_CENTER_STATUS_PENDING
+            approval_status=choices.MEDICAL_CENTER_STATUS_PENDING
         )
 
         return medical_center
