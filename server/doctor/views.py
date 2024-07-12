@@ -1,13 +1,16 @@
-from .models import Doctor, DoctorDegree, Specialization
-from rest_framework import viewsets
-from authentication.permissions import IsAdminOrReadOnly, IsDoctor, IsPatient
-from rest_framework.permissions import IsAuthenticated, IsAdminUser, SAFE_METHODS
-from . import serializers
-from django.shortcuts import get_object_or_404
-from account.models import Profile
-from rest_framework.exceptions import ValidationError
-from rest_framework.decorators import action
 from rest_framework.response import Response
+from rest_framework.decorators import action
+from django.shortcuts import get_object_or_404
+from rest_framework import viewsets
+from rest_framework.permissions import (
+    IsAuthenticated,
+    IsAdminUser,
+    SAFE_METHODS,
+    AllowAny,
+)
+from authentication.permissions import IsAdminOrReadOnly, IsDoctor, IsDoctorOwner
+from . import serializers
+from .models import Doctor, DoctorDegree, Specialization, DoctorSchedule
 
 # Create your views here.
 
@@ -20,7 +23,7 @@ class DoctorViewSet(viewsets.ModelViewSet):
             return [IsAuthenticated(), IsDoctor()]
         if self.request.method not in SAFE_METHODS:
             return [IsAuthenticated(), IsAdminUser()]
-        return []
+        return [AllowAny()]
 
     def get_queryset(self):
         if self.action == "profile":
@@ -35,12 +38,12 @@ class DoctorViewSet(viewsets.ModelViewSet):
         }
 
     def get_serializer_class(self):
-        is_safe_method = self.request.method in SAFE_METHODS
+        safe_methods = self.request.method in SAFE_METHODS
 
-        if self.action == "profile" and not is_safe_method:
+        if self.action == "profile" and not safe_methods:
             return serializers.DoctorCreateUpdateSerializer
 
-        if self.action == "profile" and is_safe_method:
+        if self.action == "profile" and safe_methods:
             return serializers.DoctorRetrieveSerializer
 
         if self.action in ["create", "update"]:
@@ -82,3 +85,23 @@ class SpecializationViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAdminOrReadOnly]
     serializer_class = serializers.SpecializationSerializer
     queryset = Specialization.objects.all()
+
+
+class DoctorScheduleViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated, IsDoctor, IsDoctorOwner]
+
+    def get_queryset(self):
+        return (
+            DoctorSchedule.objects.filter(doctor_id=self.request.user.id)
+            .select_related("medical_center")
+            .all()
+        )
+
+    def get_serializer_class(self):
+
+        if self.request.method not in SAFE_METHODS:
+            return serializers.DoctorScheduleCreateUpdateSerializer
+        return serializers.DoctorScheduleListRetrieveSerializer
+
+    def get_serializer_context(self):
+        return {"user_id": self.request.user.id}
