@@ -1,4 +1,18 @@
-from rest_framework.permissions import BasePermission, SAFE_METHODS
+from django.contrib.auth import get_user_model
+from rest_framework.permissions import BasePermission, IsAuthenticated, SAFE_METHODS
+
+
+User = get_user_model()
+
+
+class IsNotAuthenticated(IsAuthenticated):
+    def has_permission(self, request, view):
+        return not super().has_permission(request, view)
+
+
+class IsManager(BasePermission):
+    def has_permission(self, request, view):
+        return request.user.is_manager
 
 
 class IsManager(BasePermission):
@@ -28,11 +42,19 @@ class IsPatient(BasePermission):
 
 
 class IsUserOwner(BasePermission):
-    def has_permission(self, request, view):
-        return request.user.id == int(view.kwargs["pk"])
-
     def has_object_permission(self, request, view, obj):
-        return request.user.id == obj.user_id
+        if isinstance(obj, User):
+            return obj.id == request.user.id
+
+        return obj.user_id == request.user.id
+
+    def has_permission(self, request, view):
+        view_kwargs = view.kwargs.keys()
+
+        if "user_pk" in view_kwargs:
+            return request.user.id == int(view.kwargs["user_pk"])
+
+        return bool("pk" in view_kwargs and request.user.id == int(view.kwargs["pk"]))
 
 
 class IsAdminOrReadOnly(BasePermission):
