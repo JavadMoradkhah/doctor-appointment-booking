@@ -1,6 +1,8 @@
 from django.db import models
 from account.models import Profile
 from . import validators
+from . import choices
+from medical.models import MedicalCenter
 
 # Create your models here.
 
@@ -26,7 +28,7 @@ class DoctorDegree(models.Model):
 
 class Doctor(models.Model):
     profile = models.OneToOneField(
-        Profile, on_delete=models.CASCADE, related_name="doctor"
+        Profile, primary_key=True, on_delete=models.CASCADE, related_name="doctor"
     )
     specialization = models.ForeignKey(
         Specialization, on_delete=models.PROTECT, related_name="doctor"
@@ -46,4 +48,22 @@ class Doctor(models.Model):
     appointment_fee = models.IntegerField()
 
     def __str__(self) -> str:
-        return self.name
+        return self.medical_system_number
+
+
+class DoctorSchedule(models.Model):
+    doctor = models.ForeignKey(
+        Doctor, on_delete=models.CASCADE, related_name="doctor_schedules"
+    )
+    medical_center = models.ForeignKey(
+        MedicalCenter, on_delete=models.CASCADE, related_name="doctor_schedules"
+    )
+    day = models.PositiveSmallIntegerField(choices=choices.SCHEDULE_DAY_CHOICES)
+    start_at = models.TimeField()
+    end_at = models.TimeField()
+
+    class Meta:
+        unique_together = ["doctor", "medical_center", "day"]
+
+    def __str__(self) -> str:
+        return f"{self.get_day_display()} از ساعت {self.start_at} تا {self.end_at}"
