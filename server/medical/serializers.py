@@ -13,9 +13,11 @@ from .models import (
     MedicalCenterStatus,
     MedicalCenterGallery,
     MedicalCenterAddress,
+    MedicalCenterSchedule,
     MedicalCenterTelephone,
 )
 from . import validators, choices
+from .utils import calc_time_diff
 
 
 class ProvinceListSerializer(serializers.ModelSerializer):
@@ -215,6 +217,42 @@ class MedicalCenterAddressSerializer(serializers.ModelSerializer):
         )
 
         return address
+
+
+class MedicalCenterScheduleSerializer(serializers.ModelSerializer):
+    day_name = serializers.SerializerMethodField(method_name="get_day_name")
+
+    def get_day_name(self, schedule):
+        return schedule.get_day_display()
+
+    class Meta:
+        model = MedicalCenterSchedule
+        fields = ["id", "day", "day_name", "open_at", "close_at"]
+
+    def validate(self, attrs):
+        day = attrs["day"]
+        open_at = attrs["open_at"]
+        close_at = attrs["close_at"]
+        medical_center_id = self.context["medical_center_id"]
+
+        if not self.instance:
+            exists = MedicalCenterSchedule.objects.filter(
+                medical_center_id=medical_center_id, day=day
+            )
+
+            if exists:
+                raise ValidationError("این روز کاری قبلا اضافه شده است")
+
+        times_diff = calc_time_diff(close_at, open_at)
+
+        if times_diff < 3600:
+            raise ValidationError("روز کاری مراکز درمانی نباید کمتر از یک ساعت باشد")
+
+        return super().validate(attrs)
+
+    def create(self, validated_data):
+        validated_data["medical_center_id"] = self.context["medical_center_id"]
+        return super().create(validated_data)
 
 
 class MedicalCenterRetrieveSerializer(serializers.ModelSerializer):
