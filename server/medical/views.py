@@ -23,6 +23,7 @@ from .models import (
     MedicalCenterStatus,
     MedicalCenterGallery,
     MedicalCenterAddress,
+    MedicalCenterSchedule,
     MedicalCenterTelephone,
 )
 from .permissions import IsManagerMedicalCenterOwner
@@ -198,6 +199,19 @@ class MedicalCenterAddressViewSet(
 
     def get_queryset(self):
         return MedicalCenterAddress.objects.filter(
+            medical_center_id=self.kwargs["medical_center_pk"]
+        ).all()
+
+    def get_serializer_context(self):
+        return {"medical_center_id": self.kwargs["medical_center_pk"]}
+
+
+class MedicalCenterScheduleViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated, IsManager, IsManagerMedicalCenterOwner]
+    serializer_class = serializers.MedicalCenterScheduleSerializer
+
+    def get_queryset(self):
+        return MedicalCenterSchedule.objects.filter(
             medical_center_id=self.kwargs["medical_center_pk"]
         ).all()
 
