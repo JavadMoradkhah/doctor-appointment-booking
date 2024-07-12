@@ -1,5 +1,5 @@
-import pathlib
 from django.core.exceptions import ValidationError
+import pathlib
 
 
 def validate_image_jpg_jpeg(image):
