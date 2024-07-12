@@ -17,3 +17,8 @@ class DoctorDegreeAdmin(admin.ModelAdmin):
 @admin.register(models.Specialization)
 class SpecializationAdmin(admin.ModelAdmin):
     list_display = ("name",)
+
+
+@admin.register(models.DoctorSchedule)
+class DoctorScheduleAdmin(admin.ModelAdmin):
+    list_display = ("start_at",)
