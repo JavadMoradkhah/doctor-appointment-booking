@@ -15,9 +15,25 @@ class IsManager(BasePermission):
         return request.user.is_manager
 
 
+class IsManager(BasePermission):
+    def has_permission(self, request, view):
+        return request.user.is_manager
+
+
 class IsDoctor(BasePermission):
     def has_permission(self, request, view):
         return request.user.is_doctor
+
+
+class IsDoctorOwner(BasePermission):
+    def has_permission(self, request, view):
+        view_kwargs = view.kwargs.keys()
+        if "doctor_pk" not in view_kwargs:
+            return True
+        return request.user.id == int(view.kwargs["doctor_pk"])
+
+    def has_object_permission(self, request, view, obj):
+        return request.user.id == obj.doctor_id
 
 
 class IsPatient(BasePermission):

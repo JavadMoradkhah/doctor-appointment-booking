@@ -5,6 +5,7 @@ from rest_framework.decorators import action
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.exceptions import PermissionDenied
 from rest_framework.permissions import SAFE_METHODS, IsAuthenticated, IsAdminUser
 from authentication.permissions import IsUserOwner
 from account.models import Profile
@@ -52,6 +53,12 @@ class UserViewSet(ModelViewSet):
             return serializers.UserUpdateSerializer
 
         return serializers.UserListSerializer
+
+    def destroy(self, request, *args, **kwargs):
+        if request.user.id == int(kwargs["pk"]):
+            raise PermissionDenied("شما امکان حذف حساب کاربری خود را ندارید")
+
+        return super().destroy(request, *args, **kwargs)
 
     @action(detail=True, methods=["PATCH"])
     def activate(self, request: Request, pk):

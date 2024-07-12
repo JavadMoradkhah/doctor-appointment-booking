@@ -10,63 +10,45 @@ class Province(models.Model):
     name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50, unique=True, allow_unicode=True)
     image = models.ImageField(
-        upload_to='uploads/medical/images',
-        validators=[validators.validate_image]
+        upload_to="uploads/medical/images", validators=[validators.validate_image]
     )
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
 class City(models.Model):
     province = models.ForeignKey(
-        Province,
-        on_delete=models.CASCADE,
-        related_name='cities'
+        Province, on_delete=models.CASCADE, related_name="cities"
     )
     name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=50, unique=True, allow_unicode=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
 class Insurance(models.Model):
     name = models.CharField(max_length=50)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
 class UserInsurance(models.Model):
-    user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        related_name='insurances'
-    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="insurances")
     insurance = models.ForeignKey(
-        Insurance,
-        on_delete=models.PROTECT,
-        related_name='insurances'
+        Insurance, on_delete=models.PROTECT, related_name="insurances"
     )
-    insurance_code = models.CharField(
-        max_length=50,
-        unique=True,
-        null=True,
-        blank=True
-    )
+    insurance_code = models.CharField(max_length=50, unique=True, null=True, blank=True)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.insurance_code
 
 
 class Facility(models.Model):
     name = models.CharField(max_length=50)
-    slug = models.SlugField(
-        max_length=100,
-        unique=True,
-        allow_unicode=True
-    )
+    slug = models.SlugField(max_length=100, unique=True, allow_unicode=True)
 
     def __str__(self) -> str:
         return self.name
@@ -74,30 +56,18 @@ class Facility(models.Model):
 
 class MedicalCenter(models.Model):
     manager = models.ForeignKey(
-        User,
-        on_delete=models.PROTECT,
-        related_name='medical_centers'
+        User, on_delete=models.PROTECT, related_name="medical_centers"
     )
     facility = models.ForeignKey(
-        Facility,
-        on_delete=models.PROTECT,
-        related_name='medical_centers'
+        Facility, on_delete=models.PROTECT, related_name="medical_centers"
     )
     city = models.ForeignKey(
-        City,
-        on_delete=models.PROTECT,
-        related_name='medical_centers'
+        City, on_delete=models.PROTECT, related_name="medical_centers"
     )
     name = models.CharField(max_length=100)
-    slug = models.SlugField(
-        max_length=255,
-        unique=True,
-        allow_unicode=True
-    )
+    slug = models.SlugField(max_length=255, unique=True, allow_unicode=True)
     introduction = models.TextField(max_length=500)
-    photo = models.ImageField(
-        upload_to='uploads/medical/images', null=True, blank=True
-    )
+    photo = models.ImageField(upload_to="uploads/medical/images", null=True, blank=True)
 
     def __str__(self) -> str:
         return self.name
@@ -105,15 +75,12 @@ class MedicalCenter(models.Model):
 
 class MedicalCenterStatus(models.Model):
     medical_center = models.OneToOneField(
-        MedicalCenter,
-        primary_key=True,
-        on_delete=models.CASCADE,
-        related_name='status'
+        MedicalCenter, primary_key=True, on_delete=models.CASCADE, related_name="status"
     )
     approval_status = models.CharField(
         max_length=20,
         choices=choices.MEDICAL_CENTER_STATUS_CHOICES,
-        default=choices.MEDICAL_CENTER_STATUS_PENDING
+        default=choices.MEDICAL_CENTER_STATUS_PENDING,
     )
     description = models.CharField(max_length=255, null=True, blank=True)
 
@@ -123,14 +90,9 @@ class MedicalCenterStatus(models.Model):
 
 class MedicalCenterTelephone(models.Model):
     medical_center = models.ForeignKey(
-        MedicalCenter,
-        on_delete=models.CASCADE,
-        related_name='telephones'
+        MedicalCenter, on_delete=models.CASCADE, related_name="telephones"
     )
-    telephone = models.CharField(
-        max_length=11,
-        validators=[TelephoneValidator()]
-    )
+    telephone = models.CharField(max_length=11, validators=[TelephoneValidator()])
     description = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self) -> str:
@@ -142,24 +104,18 @@ class MedicalCenterTelephone(models.Model):
 
 class MedicalCenterGallery(models.Model):
     medical_center = models.ForeignKey(
-        MedicalCenter,
-        on_delete=models.CASCADE,
-        related_name='gallery'
+        MedicalCenter, on_delete=models.CASCADE, related_name="gallery"
     )
-    photo = models.ImageField(
-        upload_to='uploads/medical/images'
-    )
+    photo = models.ImageField(upload_to="uploads/medical/images")
     caption = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self) -> str:
-        return self.caption or 'کپشن ندارد'
+        return self.caption or "کپشن ندارد"
 
 
 class MedicalCenterAddress(models.Model):
     medical_center = models.OneToOneField(
-        MedicalCenter,
-        on_delete=models.CASCADE,
-        related_name='address'
+        MedicalCenter, on_delete=models.CASCADE, related_name="address"
     )
     area = models.CharField(max_length=100)
     address = models.TextField(max_length=500)
@@ -170,13 +126,9 @@ class MedicalCenterAddress(models.Model):
 
 class MedicalCenterSchedule(models.Model):
     medical_center = models.ForeignKey(
-        MedicalCenter,
-        on_delete=models.CASCADE,
-        related_name='schedules'
+        MedicalCenter, on_delete=models.CASCADE, related_name="schedules"
     )
-    day = models.PositiveSmallIntegerField(
-        choices=choices.SCHEDULE_DAY_CHOICES
-    )
+    day = models.PositiveSmallIntegerField(choices=choices.SCHEDULE_DAY_CHOICES)
     open_at = models.TimeField()
     close_at = models.TimeField()
 

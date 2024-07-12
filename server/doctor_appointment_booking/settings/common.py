@@ -25,7 +25,8 @@ THIRD_PARTY_APPS = [
 MY_APPS = [
     'account',
     'authentication',
-    'medical'
+    'medical',
+    'doctor',
 ]
 
 INSTALLED_APPS = [

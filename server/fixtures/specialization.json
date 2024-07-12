@@ -1,0 +1,171 @@
+[
+    {
+      "model": "doctor.specialization",
+      "pk": 1,
+      "fields": {
+        "name": "قلب و عروق"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 2,
+      "fields": {
+        "name": "عصب شناسی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 3,
+      "fields": {
+        "name": "سرطان شناسی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 4,
+      "fields": {
+        "name": "ارتوپدی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 5,
+      "fields": {
+        "name": "اطفال"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 6,
+      "fields": {
+        "name": "پوست"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 7,
+      "fields": {
+        "name": "روانپزشکی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 8,
+      "fields": {
+        "name": "رادیولوژی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 9,
+      "fields": {
+        "name": "گوارش"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 10,
+      "fields": {
+        "name": "غدد"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 11,
+      "fields": {
+        "name": "کلیه"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 12,
+      "fields": {
+        "name": "اورولوژی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 13,
+      "fields": {
+        "name": "ریه"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 14,
+      "fields": {
+        "name": "روماتولوژی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 15,
+      "fields": {
+        "name": "چشم پزشکی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 16,
+      "fields": {
+        "name": "گوش و حلق و بینی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 17,
+      "fields": {
+        "name": "بیهوشی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 18,
+      "fields": {
+        "name": "آسیب شناسی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 19,
+      "fields": {
+        "name": "ایمونولوژی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 20,
+      "fields": {
+        "name": "خون شناسی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 21,
+      "fields": {
+        "name": "بیماری های عفونی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 22,
+      "fields": {
+        "name": "جراحی پلاستیک"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 23,
+      "fields": {
+        "name": "جراحی عمومی"
+      }
+    },
+    {
+      "model": "doctor.specialization",
+      "pk": 24,
+      "fields": {
+        "name": "پزشکی اورژانس"
+      }
+    }
+  ]
+  
