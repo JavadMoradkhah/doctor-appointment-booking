@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "==4.2.13"
 pillow = "*"
 django-cleanup = "*"
 django-debug-toolbar = "*"
@@ -17,6 +16,9 @@ redis = "*"
 requests = "==2.32.*"
 djangorestframework-simplejwt = "*"
 python-decouple = "*"
+black = "*"
+argon2-cffi = "*"
+django = "==4.2.13"
 
 [dev-packages]
 
