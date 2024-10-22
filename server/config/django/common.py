@@ -129,7 +129,7 @@ from config.settings.jwt import *
 from config.settings.redis import *
 from config.settings.rest_framework import *
 from config.settings.celery import *
-
+from config.settings.otp import *
 
 
 
