@@ -5,6 +5,14 @@
 ![Python Version](https://img.shields.io/badge/python-3.11-blue)
 ![Django Version](https://img.shields.io/badge/django-4.2-green)
 ![Project Version](https://img.shields.io/badge/version-1.0.0-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Last Commit](https://img.shields.io/github/last-commit/JavadMoradkhah/doctor-appointment-booking)
+![Open Issues](https://img.shields.io/github/issues/JavadMoradkhah/doctor-appointment-booking)
+![Build Status](https://img.shields.io/github/workflow/status/JavadMoradkhah/doctor-appointment-booking/CI)
+![Contributors](https://img.shields.io/github/contributors/JavadMoradkhah/doctor-appointment-booking)
+![Closed Issues](https://img.shields.io/github/issues-closed/JavadMoradkhah/doctor-appointment-booking)
+![Dependencies](https://img.shields.io/david/JavadMoradkhah/doctor-appointment-booking)
+
 
 The **Doctor Appointment Booking System** is a web-based appointment scheduling system similar to **Paziresh24**, designed specifically for a single clinic. This application allows patients to book appointments, doctors to manage their schedules, and clinic administrators to oversee operations. It also implements secure OTP-based authentication.
 
