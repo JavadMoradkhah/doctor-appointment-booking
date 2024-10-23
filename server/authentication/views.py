@@ -1,27 +1,26 @@
+from .enums import UrlTargetRole
+from .models import Otp, OtpBlacklist
+from .otp_utils import hash_otp, verify_otp
+from .permissions import IsNotAuthenticated
+from .serializers import PhoneSerializer, SignupSerializer
+from .tasks import send_otp
+from account.choices import USER_ROLE_PATIENT
+from config.settings.otp import OTP_SETTINGS
 from datetime import datetime, timedelta
-from typing import Dict, Any
-
-from django.db import transaction
-from django.utils import timezone
-from random import randint
 from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
+from django.utils import timezone
+from random import randint
 from rest_framework import status
-from rest_framework.generics import GenericAPIView
-from rest_framework.request import Request
-from rest_framework.response import Response
-from rest_framework.exceptions import Throttled, AuthenticationFailed, ValidationError
 from rest_framework_simplejwt.settings import api_settings as jwt_settings
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
-
-from account.choices import USER_ROLE_PATIENT
-from config.settings.otp import OTP_SETTINGS
-from .models import Otp, OtpBlacklist
-from .otp_utils import hash_otp, verify_otp
-from .serializers import PhoneSerializer, SignupSerializer
-from .tasks import send_otp
+from rest_framework.exceptions import Throttled, AuthenticationFailed, ValidationError
+from rest_framework.generics import GenericAPIView
+from rest_framework.request import Request
+from rest_framework.response import Response
+from typing import Dict, Any
 
 User = get_user_model()
 
@@ -29,6 +28,7 @@ User = get_user_model()
 class SendOtpView(GenericAPIView):
     """ Sends OTP and manages blacklist and OTP attempt handling """
     serializer_class = PhoneSerializer
+    permission_classes = [IsNotAuthenticated]
 
     def post(self, request, *args, **kwargs) -> Response:
         serializer = self.get_serializer(data=request.data)

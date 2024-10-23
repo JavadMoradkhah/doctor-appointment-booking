@@ -66,3 +66,6 @@ class Profile(models.Model):
     nation_code = models.CharField(max_length=10, unique=True)
     gender = models.CharField(max_length=10, choices=choices.USER_GENDER_CHOICES)
     date_of_birth = models.DateField()
+    avatar = models.ImageField(
+        upload_to="uploads/account/images", null=True, blank=True
+    )
