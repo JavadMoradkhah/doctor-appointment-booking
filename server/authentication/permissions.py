@@ -1,5 +1,8 @@
 from django.contrib.auth import get_user_model
 from rest_framework.permissions import BasePermission, IsAuthenticated, SAFE_METHODS
+from rest_framework.request import Request
+from rest_framework.views import View
+from typing import Any
 
 
 User = get_user_model()
@@ -11,33 +14,62 @@ class IsNotAuthenticated(IsAuthenticated):
 
 
 class IsManager(BasePermission):
-    def has_permission(self, request, view):
-        return request.user.is_manager
-
-
-class IsManager(BasePermission):
-    def has_permission(self, request, view):
+    """
+    Permission to check if the user is a manager.
+    """
+    def has_permission(self, request: Request, view: View) -> bool:
         return request.user.is_manager
 
 
 class IsDoctor(BasePermission):
-    def has_permission(self, request, view):
+    """
+    Permission to check if the user is a doctor.
+    """
+    def has_permission(self, request: Request, view: View) -> bool:
         return request.user.is_doctor
 
 
-class IsDoctorOwner(BasePermission):
-    def has_permission(self, request, view):
-        view_kwargs = view.kwargs.keys()
-        if "doctor_pk" not in view_kwargs:
-            return True
-        return request.user.id == int(view.kwargs["doctor_pk"])
+class IsDoctorOrAdmin(BasePermission):
+    """
+    Permission to allow doctors or admin users.
+    """
+    def has_permission(self, request: Request, view: View) -> bool:
+        return request.user.is_doctor or request.user.is_admin
 
-    def has_object_permission(self, request, view, obj):
+
+class IsDoctorOwner(BasePermission):
+    """
+    Permission to check if the request user is the owner of the doctor resource.
+    """
+    def has_permission(self, request: Request, view: View) -> bool:
+        doctor_pk = view.kwargs.get("doctor_pk")
+        return not doctor_pk or request.user.id == int(doctor_pk)
+
+    def has_object_permission(self, request: Request, view: View, obj: Any) -> bool:
         return request.user.id == obj.doctor_id
 
 
+class IsDoctorOrPatient(BasePermission):
+    """
+    Permission to allow either doctors or patients.
+    """
+    def has_permission(self, request: Request, view: View) -> bool:
+        return request.user.is_doctor or request.user.is_patient
+
+
+class IsPatientOwner(BasePermission):
+    """
+    Permission to check if the request user is the owner of the patient resource.
+    """
+    def has_object_permission(self, request: Request, view: View, obj: Any) -> bool:
+        return request.user.id == obj.patient_id
+
+
 class IsPatient(BasePermission):
-    def has_permission(self, request, view):
+    """
+    Permission to check if the user is a patient.
+    """
+    def has_permission(self, request: Request, view: View) -> bool:
         return request.user.is_patient
 
 
@@ -58,10 +90,11 @@ class IsUserOwner(BasePermission):
 
 
 class IsAdminOrReadOnly(BasePermission):
-    def has_permission(self, request, view):
+    """
+    Permission that allows access to safe methods (GET, HEAD, OPTIONS) for everyone,
+    but restricts write methods to admin users.
+    """
+    def has_permission(self, request: Request, view: View) -> bool:
         if request.method in SAFE_METHODS:
             return True
-
-        return bool(
-            request.user and request.user.is_authenticated and request.user.is_staff
-        )
+        return request.user.is_authenticated and request.user.is_staff
